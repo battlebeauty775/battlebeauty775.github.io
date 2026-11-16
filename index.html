@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battle Beauty | Luxury Hair Tools & Hair Academy • Reno, NV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-rose-light: #dfaaa0;
+      --bg-rose-base: #cf9b8e;
+      --bg-rose-deep: #b37b6e;
+      --espresso-dark: #1c100f;
+      --espresso-card: rgba(28, 16, 15, 0.93);
+      --espresso-soft: rgba(42, 24, 22, 0.85);
+      --gold-light: #f7ded6;
+      --gold-mid: #e5be9e;
+      --gold-metallic: linear-gradient(135deg, #fff5f2 0%, #f7ded6 45%, #e5be9e 100%);
+      --text-light: #fff5f2;
+      --text-muted: #d6bab2;
+      --border-gold: rgba(229, 190, 158, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: radial-gradient(circle at top center, var(--bg-rose-light) 0%, var(--bg-rose-base) 50%, var(--bg-rose-deep) 100%);
+      color: var(--text-light);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* Navigation Bar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(28, 16, 15, 0.96);
+      border-bottom: 1px solid var(--border-gold);
+      backdrop-filter: blur(10px);
+      padding: 14px 24px;
+    }
+
+    .nav-container {
+      max-width: 1150px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-brand-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      background: var(--gold-metallic);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--gold-light);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-cta {
+      background: var(--gold-metallic);
+      color: var(--espresso-dark) !important;
+      padding: 9px 18px;
+      border-radius: 25px;
+      font-weight: 700 !important;
+    }
+
+    /* Main Layout Wrapper */
+    .wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 35px 20px 60px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: var(--espresso-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 60px 30px;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
+      margin-bottom: 45px;
+    }
+
+    .hero-emblem {
+      width: 95px;
+      height: 95px;
+      margin: 0 auto 15px;
+      display: block;
+    }
+
+    .hero-subtitle {
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: var(--gold-mid);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .location-pill {
+      display: inline-block;
+      background: rgba(207, 155, 142, 0.14);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+      padding: 7px 18px;
+      border-radius: 30px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      background: var(--gold-metallic);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto 32px;
+      color: var(--text-muted);
+      font-size: 15px;
+      font-weight: 300;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold-metallic);
+      color: var(--espresso-dark);
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      opacity: 0.94;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold-light);
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid var(--gold-mid);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(229, 190, 158, 0.12);
+    }
+
+    /* Section Containers */
+    .section-panel {
+      background: var(--espresso-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 45px 30px;
+      margin-bottom: 45px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--gold-mid);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      color: #ffffff;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 14px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--espresso-soft);
+      border: 1px solid var(--border-gold);
+      border-radius: 14px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .warranty-badge {
+      display: inline-block;
+      align-self: flex-start;
+      background: rgba(229, 190, 158, 0.15);
+      color: var(--gold-light);
+      border: 1px solid var(--border-gold);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    .product-visual {
+      height: 170px;
+      background: radial-gradient(circle, #38201e 0%, #160c0b 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 15px;
+      text-align: center;
+    }
+
+    .product-visual span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--gold-mid);
+      letter-spacing: 1px;
+    }
+
+    .product-card h3 {
+      font-size: 23px;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .product-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .product-footer {
+      border-top: 1px solid rgba(229, 190, 158, 0.18);
+      padding-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .price-tag {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+
+    .msrp-label {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .btn-buy {
+      background: var(--gold-metallic);
+      color: var(--espresso-dark);
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    /* Hair Academy & Video Hub */
+    .academy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .video-card {
+      background: var(--espresso-soft);
+      border: 1px solid var(--border-gold);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .video-placeholder {
+      height: 190px;
+      background: linear-gradient(135deg, #2b1816, #140a09);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border-gold);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .play-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--gold-metallic);
+      color: var(--espresso-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .video-info {
+      padding: 20px;
+    }
+
+    .video-info h3 {
+      font-size: 21px;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+
+    .video-info p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .tips-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .tip-box {
+      background: rgba(207, 155, 142, 0.08);
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .tip-box h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+
+    .tip-box p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* 1-on-1 Consultation Booking Form */
+    .booking-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 30px;
+      align-items: center;
+    }
+
+    .booking-details h3 {
+      font-size: 28px;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+
+    .booking-details p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .booking-list {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .booking-list li {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .booking-list li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--gold-mid);
+    }
+
+    .disclaimer-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.04);
+      padding: 10px 14px;
+      border-radius: 8px;
+      border-left: 3px solid var(--gold-mid);
+    }
+
+    .booking-form {
+      background: var(--espresso-soft);
+      border: 1px solid var(--border-gold);
+      padding: 25px;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .booking-form input,
+    .booking-form select {
+      padding: 13px 15px;
+      border-radius: 8px;
+      border: 1px solid var(--border-gold);
+      background: #120908;
+      color: var(--text-light);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .booking-form input:focus,
+    .booking-form select:focus {
+      border-color: var(--gold-light);
+    }
+
+    /* Location & Contact */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+
+    .info-card {
+      background: var(--espresso-soft);
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .info-card h3 {
+      font-size: 22px;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+
+    .info-card p, .info-card a {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: block;
+    }
+
+    .info-card a:hover {
+      color: var(--gold-light);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--espresso-dark);
+      border-top: 1px solid var(--border-gold);
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .policy-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .policy-links button {
+      background: none;
+      border: none;
+      color: var(--gold-mid);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+    }
+
+    /* Modal Popups for Legal Policies & Cart */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-box {
+      background: var(--espresso-dark);
+      border: 1px solid var(--gold-mid);
+      border-radius: 16px;
+      max-width: 550px;
+      width: 100%;
+      padding: 30px;
+      position: relative;
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: var(--gold-light);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .modal-box h3 {
+      font-size: 28px;
+      color: var(--gold-light);
+      margin-bottom: 14px;
+    }
+
+    .modal-box p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="nav-brand">
+        <svg width="34" height="34" viewBox="0 0 100 100" fill="none">
+          <path d="M50 15C35 15 20 30 25 50C28 62 40 68 50 65C62 61 68 45 60 35C55 28 42 30 40 40C38 48 48 52 52 48" stroke="url(#navGold)" stroke-width="4" stroke-linecap="round"/>
+          <path d="M35 25C25 35 22 55 35 70C43 79 60 80 70 70C82 58 78 38 65 30C55 24 40 32 45 45" stroke="url(#navGold)" stroke-width="3" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="navGold" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFF5F2"/>
+              <stop offset="0.5" stop-color="#F7DED6"/>
+              <stop offset="1" stop-color="#E5BE9E"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="nav-brand-text">Battle Beauty</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#shop">Tools & Hair Care</a>
+        <a href="#academy">Hair Academy</a>
+        <a href="#visit">Visit Kiosk</a>
+        <a href="#consultation" class="nav-cta">1-on-1 Consultation</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrapper">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <svg class="hero-emblem" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 15C35 15 20 30 25 50C28 62 40 68 50 65C62 61 68 45 60 35C55 28 42 30 40 40C38 48 48 52 52 48" stroke="url(#heroGold)" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M35 25C25 35 22 55 35 70C43 79 60 80 70 70C82 58 78 38 65 30C55 24 40 32 45 45" stroke="url(#heroGold)" stroke-width="2.5" stroke-linecap="round"/>
+        <defs>
+          <linearGradient id="heroGold" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFF5F2"/>
+            <stop offset="0.5" stop-color="#F7DED6"/>
+            <stop offset="1" stop-color="#E5BE9E"/>
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <div class="hero-subtitle">Authorized Soleil Hair Tools Retailer • Reno, Nevada</div>
+      <div class="location-pill">Meadowood Mall • 5000 Meadowood Mall Circle</div>
+
+      <h1>In the Battlefield, True Beauty Requires Intelligence</h1>
+      <p>Discover luxury thermal styling technology, botanical hair repair, and personalized hair education. Explore our official Soleil Hair Tools collection online or book a personalized 1-on-1 tool consultation at our Meadowood Mall boutique.</p>
+
+      <div class="hero-buttons">
+        <a href="#consultation" class="btn-primary">Book a 1-on-1 Tool Consultation</a>
+        <a href="#shop" class="btn-outline">Explore Soleil Collection</a>
+      </div>
+    </section>
+
+    <!-- Full-Retail Online Store -->
+    <section id="shop" class="section-panel">
+      <div class="section-header">
+        <span class="section-eyebrow">Official MSRP Retail Boutique</span>
+        <h2>Soleil Hair Tools & Botanical Care</h2>
+        <p>Every Soleil styling tool includes an official Manufacturer Lifetime Warranty. Full specifications available via soleilhairtools.com.</p>
+      </div>
+
+      <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div>
+            <span class="warranty-badge">Lifetime Warranty</span>
+            <div class="product-visual">
+              <span>Soleil Purple Blowout Brush</span>
+            </div>
+            <h3>Purple Blowout Brush</h3>
+            <p class="product-desc">Ionic thermal styling brush engineered to smooth frizz, boost root volume, and deliver a glossy salon-quality blowout in a single pass.</p>
+          </div>
+          <div class="product-footer">
+            <div>
+              <span class="msrp-label">Official MSRP</span>
+              <span class="price-tag">$350.00</span>
+            </div>
+            <button class="btn-buy" onclick="openCheckout('Purple Blowout Brush', '$350.00')">Purchase</button>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div>
+            <span class="warranty-badge">Lifetime Warranty</span>
+            <div class="product-visual">
+              <span>Soleil IR Wide Flat Iron</span>
+            </div>
+            <h3>The IR Wide Styler</h3>
+            <p class="product-desc">Far-infrared wide ceramic-tourmaline plates penetrate hair gently from within, locking in natural moisture while straightening thick or coarse textures fast.</p>
+          </div>
+          <div class="product-footer">
+            <div>
+              <span class="msrp-label">Official MSRP</span>
+              <span class="price-tag">$450.00</span>
+            </div>
+            <button class="btn-buy" onclick="openCheckout('The IR Wide Styler', '$450.00')">Purchase</button>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div>
+            <span class="warranty-badge">Lifetime Warranty</span>
+            <div class="product-visual">
+              <span>Soleil Heated Styling Comb</span>
+            </div>
+            <h3>Precision Styling Comb</h3>
+            <p class="product-desc">Even-heat ceramic thermal comb designed for effortless root smoothing, silk-press prep, and flyaway control without scorching delicate strands.</p>
+          </div>
+          <div class="product-footer">
+            <div>
+              <span class="msrp-label">Official MSRP</span>
+              <span class="price-tag">$300.00</span>
+            </div>
+            <button class="btn-buy" onclick="openCheckout('Precision Styling Comb', '$300.00')">Purchase</button>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div>
+            <span class="warranty-badge">Botanical Repair</span>
+            <div class="product-visual">
+              <span>Trio Miracle Oil & Moroccan Care</span>
+            </div>
+            <h3>Trio Miracle Oil & Serum</h3>
+            <p class="product-desc">Infused with pure Marula, Coconut, and Rose Petal extracts alongside Moroccan Argan nourishment to shield hair before heat styling and restore mirror-like shine.</p>
+          </div>
+          <div class="product-footer">
+            <div>
+              <span class="msrp-label">Official MSRP</span>
+              <span class="price-tag">$250.00</span>
+            </div>
+            <button class="btn-buy" onclick="openCheckout('Trio Miracle Oil & Serum', '$250.00')">Purchase</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hair Academy & Video Hub -->
+    <section id="academy" class="section-panel">
+      <div class="section-header">
+        <span class="section-eyebrow">Education • Tips • Video Tutorials</span>
+        <h2>Battle Beauty Hair Academy</h2>
+        <p>Healthy hair starts with intelligent heat management. Watch our step-by-step tool guides and master your daily styling routine.</p>
+      </div>
+
+      <div class="academy-grid">
+        <div class="video-card">
+          <div class="video-placeholder">
+            <div class="play-circle">▶</div>
+            <span style="font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-light);">Tutorial Video Slot 1</span>
+          </div>
+          <div class="video-info">
+            <h3>10-Minute Volume Blowout</h3>
+            <p>Learn sectioning angles and tension control with the Purple Blowout Brush for bouncy, frizz-free movement.</p>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-placeholder">
+            <div class="play-circle">▶</div>
+            <span style="font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-light);">Tutorial Video Slot 2</span>
+          </div>
+          <div class="video-info">
+            <h3>Infrared vs. Traditional Heat</h3>
+            <p>See how far-infrared technology on The IR Wide seals the hair cuticle at lower temperatures without moisture loss.</p>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-placeholder">
+            <div class="play-circle">▶</div>
+            <span style="font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-light);">Tutorial Video Slot 3</span>
+          </div>
+          <div class="video-info">
+            <h3>The Botanical Shield Routine</h3>
+            <p>How to layer Trio Miracle Oil and Moroccan Hair Serum before and after heat styling for lasting silkiness.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tips-bar">
+        <div class="tip-box">
+          <h4>01. Match Heat to Hair Density</h4>
+          <p>Fine or color-treated hair thrives between 300°F–350°F, while thick or coarse textures respond best to steady infrared heat at 380°F–410°F.</p>
+        </div>
+        <div class="tip-box">
+          <h4>02. Never Press Damp Strands</h4>
+          <p>Always dry hair 100% before using flat irons or styling combs to prevent internal steam damage to the hair shaft.</p>
+        </div>
+        <div class="tip-box">
+          <h4>03. Seal With Cold & Botanicals</h4>
+          <p>Finish every style with a cool-air pass and 2 drops of Trio Miracle Oil on mid-lengths and ends to lock out humidity.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1-on-1 Tool & Hair Care Consultation -->
+    <section id="consultation" class="section-panel">
+      <div class="booking-grid">
+        <div class="booking-details">
+          <span class="section-eyebrow">Personalized Kiosk Experience</span>
+          <h3>Book a 1-on-1 Tool & Hair Care Consultation</h3>
+          <p>Unsure which thermal tool or botanical treatment matches your hair texture? Schedule a private 1-on-1 product consultation at our Meadowood Mall retail kiosk.</p>
+          <ul class="booking-list">
+            <li>Test heat settings and compare infrared plates vs. blowout brushes in person</li>
+            <li>Get custom temperature and hair-care routine recommendations for your hair type</li>
+            <li>Learn quick styling techniques directly from a Battle Beauty specialist</li>
+          </ul>
+          <div class="disclaimer-note">
+            <strong>Retail Boutique Notice:</strong> Battle Beauty is a luxury hair tool and hair care retail boutique, not a licensed hair salon. Consultations focus exclusively on product education and tool demonstrations.
+          </div>
+        </div>
+
+        <form class="booking-form" onsubmit="handleBooking(event)">
+          <input type="text" id="clientName" placeholder="Your Full Name" required>
+          <input type="email" id="clientEmail" placeholder="Your Email Address" required>
+          <input type="tel" id="clientPhone" placeholder="Phone Number (for confirmation)" required>
+          <select id="toolInterest" required>
+            <option value="">Select Tool / Topic of Interest...</option>
+            <option value="Purple Blowout Brush">Purple Blowout Brush Consultation</option>
+            <option value="The IR Wide Flat Iron">The IR Wide Infrared Styler Consultation</option>
+            <option value="Precision Styling Comb">Heated Styling Comb Consultation</option>
+            <option value="Botanical Oils & Masks">Trio Miracle Oil & Hair Care Routine</option>
+          </select>
+          <input type="date" id="visitDate" required>
+          <button type="submit" class="btn-primary">Request Consultation Time</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Location & Contact -->
+    <section id="visit" class="section-panel">
+      <div class="section-header">
+        <span class="section-eyebrow">Reno, Nevada</span>
+        <h2>Visit Our Meadowood Mall Boutique</h2>
+        <p>Our retail kiosk moves between prime concourse locations throughout the mall during peak holiday seasons—reach out anytime if you need help spotting us!</p>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Location</h3>
+          <p>Meadowood Mall</p>
+          <p>5000 Meadowood Mall Circle</p>
+          <p>Reno, NV 89502</p>
+        </div>
+        <div class="info-card">
+          <h3>Mall Hours</h3>
+          <p>Mon – Sat: 10:00 AM – 8:00 PM</p>
+          <p>Sunday: 11:00 AM – 6:00 PM</p>
+        </div>
+        <div class="info-card">
+          <h3>Contact & Social</h3>
+          <a href="mailto:beautysemin775@gmail.com">beautysemin775@gmail.com</a>
+          <a href="tel:7023257785">Phone / WhatsApp: (702) 325-7785</a>
+          <a href="https://instagram.com/BattleBeauty775" target="_blank">Instagram: @BattleBeauty775</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer & Legal Policies -->
+  <footer>
+    <div class="policy-links">
+      <button onclick="openPolicy('return')">Return & Exchange Policy</button>
+      <button onclick="openPolicy('shipping')">Shipping Policy</button>
+      <button onclick="openPolicy('terms')">Terms of Service</button>
+      <button onclick="openPolicy('privacy')">Privacy Policy</button>
+    </div>
+    <p class="footer-copy">© 2026 Battle Beauty, LLC • Authorized Soleil Hair Tools Retailer • Meadowood Mall, Reno, NV</p>
+  </footer>
+
+  <!-- Modal Popup -->
+  <div id="infoModal" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="document.getElementById('infoModal').style.display='none'">×</button>
+      <h3 id="modalTitle">Policy</h3>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    const policies = {
+      return: {
+        title: "Return & Exchange Policy",
+        body: "<p><strong>NO REFUNDS. ALL SALES ARE FINAL.</strong></p><p><strong>Exchanges Only:</strong> Opened styling tools may be exchanged within <strong>14 days</strong> of purchase with original receipt and all original packaging. All approved exchanges are subject to a <strong>40% restocking fee</strong> to cover packaging loss, technical inspection, and administrative costs.</p><p><strong>Strictly Final Sale (No Exchanges):</strong> Due to health, hygiene, and sterility standards, no returns or exchanges are accepted on Hair Extensions or Hair Care Products (hair masks, oils, serums, and styling liquids).</p><p><strong>Lifetime Warranty:</strong> Defective Soleil styling tools are covered under the official Soleil Manufacturer Lifetime Warranty.</p>"
+      },
+      shipping: {
+        title: "Shipping & Delivery Policy",
+        body: "<p>Orders placed online are processed within 1–2 business days via insured carrier with tracking provided to your email.</p><p>Local Reno customers may also arrange direct pickup at our Meadowood Mall retail kiosk during regular mall operating hours.</p>"
+      },
+      terms: {
+        title: "Terms of Service",
+        body: "<p>Welcome to battle-beauty.com, operated by Battle Beauty, LLC. By accessing this site or purchasing products, you agree to our listed MSRP retail pricing, exchange terms, and manufacturer warranty guidelines.</p><p>Battle Beauty is a retail boutique and does not provide licensed salon services.</p>"
+      },
+      privacy: {
+        title: "Privacy Policy",
+        body: "<p>Battle Beauty, LLC respects your privacy. Personal information collected during consultation requests or purchases (name, email, phone number) is used solely to fulfill orders, schedule kiosk visits, and send requested updates. We never sell customer data to third parties.</p>"
+      }
+    };
+
+    function openPolicy(type) {
+      document.getElementById('modalTitle').innerText = policies[type].title;
+      document.getElementById('modalBody').innerHTML = policies[type].body;
+      document.getElementById('infoModal').style.display = 'flex';
+    }
+
+    function openCheckout(productName, price) {
+      document.getElementById('modalTitle').innerText = productName + " (" + price + ")";
+      document.getElementById('modalBody').innerHTML =
+        "<p><strong>Official MSRP Price:</strong> " + price + " (Includes Manufacturer Lifetime Warranty)</p>" +
+        "<p>To complete your online order or request an invoice payment link, email <strong>beautysemin775@gmail.com</strong> or message us on Instagram <strong>@BattleBeauty775</strong> with your selected item.</p>";
+      document.getElementById('infoModal').style.display = 'flex';
+    }
+
+    function handleBooking(e) {
+      e.preventDefault();
+      const name = document.getElementById('clientName').value;
+      const tool = document.getElementById('toolInterest').value;
+      const date = document.getElementById('visitDate').value;
+      document.getElementById('modalTitle').innerText = "Consultation Request Received";
+      document.getElementById('modalBody').innerHTML =
+        "<p>Thank you, <strong>" + name + "</strong>!</p>" +
+        "<p>We have noted your 1-on-1 retail consultation request for the <strong>" + tool + "</strong> on <strong>" + date + "</strong> at Meadowood Mall.</p>" +
+        "<p>For immediate confirmation, you can also text/WhatsApp us at <strong>(702) 325-7785</strong> or DM <strong>@BattleBeauty775</strong>.</p>";
+      document.getElementById('infoModal').style.display = 'flex';
+      e.target.reset();
+    }
+
+    function closeModal(e) {
+      if (e.target.id === 'infoModal') {
+        document.getElementById('infoModal').style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
