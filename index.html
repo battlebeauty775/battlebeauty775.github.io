@@ -578,10 +578,10 @@
       <div class="location-pill">Meadowood Mall • 5000 Meadowood Mall Circle</div>
 
       <h1>In the Battlefield, True Beauty Requires Intelligence</h1>
-      <p>Discover luxury thermal styling technology, botanical hair repair, and personalized hair education. Explore our official Soleil Hair Tools collection online or book a personalized 1-on-1 tool consultation at our Meadowood Mall boutique.</p>
+      <p>Discover luxury thermal styling technology, botanical hair repair, and personalized hair education. Explore our official Soleil Hair Tools collection online or book a personalized $75 in-person tool consultation at our Meadowood Mall boutique.</p>
 
       <div class="hero-buttons">
-        <a href="#consultation" class="btn-primary">Book a 1-on-1 Tool Consultation</a>
+        <a href="#consultation" class="btn-primary">Book a $75 In-Person Consultation</a>
         <a href="#shop" class="btn-outline">Explore Soleil Collection</a>
       </div>
     </section>
@@ -617,11 +617,10 @@
           </div>
         </div>
 
-        <!-- Product 2: The IR+ Wide Styler (With multi-image showcase support) -->
+        <!-- Product 2: The IR+ Wide Styler -->
         <div class="product-card">
           <div>
             <span class="warranty-badge">Lifetime Warranty</span>
-            <!-- Main IR Wide Photo -->
             <img src="ir-wide.jpg" alt="Soleil IR+ Wide Flat Iron" class="product-img" style="object-fit:cover; background:#160c0b;">
             <h3>The IR+ Wide Styler</h3>
             <p class="product-desc">Far-infrared wide 1.5" ceramic-tourmaline plates penetrate hair gently from within, locking in natural moisture while straightening thick or coarse textures fast.</p>
@@ -708,7 +707,7 @@
       </div>
     </section>
 
-    <!-- Infrared & Keratin Science Spotlight (Featuring your 4 IR images/infographics) -->
+    <!-- Infrared & Keratin Science Spotlight -->
     <section id="ir-science" class="section-panel">
       <div class="section-header">
         <span class="section-eyebrow">Hair Science & Professional Heat Safety / Ciencia Capilar</span>
@@ -795,20 +794,20 @@
       </div>
     </section>
 
-    <!-- 1-on-1 Tool & Hair Care Consultation -->
+    <!-- $75 In-Person Tool & Hair Care Consultation Form -->
     <section id="consultation" class="section-panel">
       <div class="booking-grid">
         <div class="booking-details">
-          <span class="section-eyebrow">Personalized Kiosk Experience</span>
-          <h3>Book a 1-on-1 Tool & Hair Care Consultation</h3>
-          <p>Unsure which thermal tool or botanical treatment matches your hair texture? Schedule a private 1-on-1 product consultation at our Meadowood Mall retail kiosk.</p>
+          <span class="section-eyebrow">Personalized Kiosk Experience ($75 In-Person Fee)</span>
+          <h3>Book a $75 In-Person Tool & Hair Care Consultation</h3>
+          <p>Unsure which thermal tool or botanical treatment matches your hair texture? Schedule a private 1-on-1 product consultation at our Meadowood Mall retail kiosk for $75.</p>
           <ul class="booking-list">
-            <li>Test heat settings and compare infrared plates vs. blowout brushes in person</li>
+            <li>Test heat settings and compare infrared plates vs. blowout brushes in person ($75 session)</li>
             <li>Get custom temperature and hair-care routine recommendations for your hair type</li>
             <li>Learn quick styling techniques directly from a Battle Beauty specialist</li>
           </ul>
           <div class="disclaimer-note">
-            <strong>Retail Boutique Notice:</strong> Battle Beauty is a luxury hair tool and hair care retail boutique, not a licensed hair salon. Consultations focus exclusively on product education and tool demonstrations.
+            <strong>Retail Boutique Notice:</strong> Battle Beauty is a luxury hair tool and hair care retail boutique, not a licensed hair salon. Consultations ($75 in-person fee) focus exclusively on product education and tool demonstrations.
           </div>
         </div>
 
@@ -817,14 +816,14 @@
           <input type="email" id="clientEmail" placeholder="Your Email Address" required>
           <input type="tel" id="clientPhone" placeholder="Phone Number (for confirmation)" required>
           <select id="toolInterest" required>
-            <option value="">Select Tool / Topic of Interest...</option>
-            <option value="Purple Blowout Brush">Purple Blowout Brush Consultation</option>
-            <option value="The IR+ Wide Flat Iron">The IR+ Wide Infrared Styler Consultation</option>
-            <option value="Styling Comb Heat Brush">Styling Comb Heat Brush Consultation</option>
-            <option value="Trio Miracle Oil & Moroccan Serum">Trio Miracle Oil & Hair Care Routine</option>
+            <option value="">Select Tool / Topic of Interest ($75 Session)...</option>
+            <option value="Purple Blowout Brush ($75)">Purple Blowout Brush Consultation ($75)</option>
+            <option value="The IR+ Wide Flat Iron ($75)">The IR+ Wide Infrared Styler Consultation ($75)</option>
+            <option value="Styling Comb Heat Brush ($75)">Styling Comb Heat Brush Consultation ($75)</option>
+            <option value="Trio Miracle Oil & Moroccan Serum ($75)">Trio Miracle Oil & Hair Care Routine ($75)</option>
           </select>
           <input type="date" id="visitDate" required>
-          <button type="submit" class="btn-primary">Request Consultation Time</button>
+          <button type="submit" class="btn-primary">Request $75 Consultation Time</button>
         </form>
       </div>
     </section>
@@ -919,10 +918,10 @@
       const name = document.getElementById('clientName').value;
       const tool = document.getElementById('toolInterest').value;
       const date = document.getElementById('visitDate').value;
-      document.getElementById('modalTitle').innerText = "Consultation Request Received";
+      document.getElementById('modalTitle').innerText = "$75 Consultation Request Received";
       document.getElementById('modalBody').innerHTML =
         "<p>Thank you, <strong>" + name + "</strong>!</p>" +
-        "<p>We have noted your 1-on-1 retail consultation request for the <strong>" + tool + "</strong> on <strong>" + date + "</strong> at Meadowood Mall.</p>" +
+        "<p>We have noted your $75 in-person retail consultation request for the <strong>" + tool + "</strong> on <strong>" + date + "</strong> at Meadowood Mall.</p>" +
         "<p>For immediate confirmation, you can also text/WhatsApp us at <strong>(702) 325-7785</strong> or DM <strong>@BattleBeauty775</strong>.</p>";
       document.getElementById('infoModal').style.display = 'flex';
       e.target.reset();
