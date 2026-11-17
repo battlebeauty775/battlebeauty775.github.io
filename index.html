@@ -324,8 +324,30 @@
     .product-desc {
       font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       flex-grow: 1;
+    }
+
+    .tool-specs {
+      list-style: none;
+      margin-bottom: 16px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(229, 190, 158, 0.2);
+    }
+
+    .tool-specs li {
+      font-size: 11.5px;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .tool-specs li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--gold-mid);
     }
 
     .product-footer {
@@ -710,13 +732,18 @@
             </div>
             <h3>Purple Blowout Brush</h3>
             <p class="product-desc">Ionic thermal styling brush engineered to smooth frizz, boost root volume, and deliver a glossy salon-quality blowout in a single pass.</p>
+            <ul class="tool-specs">
+              <li>Negative-ion generator reduces static & frizz</li>
+              <li>360° airflow vents for fast, even drying</li>
+              <li>Tangle-free combination bristles & 3 heat settings</li>
+            </ul>
           </div>
           <div class="product-footer">
             <div>
               <span class="msrp-label">Official MSRP</span>
-              <span class="price-tag">$350.00</span>
+              <span class="price-tag">$400.00</span>
             </div>
-            <button class="btn-buy" onclick="openCheckout('Purple Blowout Brush', '$350.00')">Purchase</button>
+            <button class="btn-buy" onclick="openCheckout('Purple Blowout Brush', '$400.00')">Purchase</button>
           </div>
         </div>
 
@@ -725,17 +752,22 @@
           <div>
             <span class="warranty-badge">Lifetime Warranty</span>
             <div class="product-visual">
-              <span>Soleil IR Wide Flat Iron</span>
+              <span>Soleil IR+ Wide Flat Iron</span>
             </div>
-            <h3>The IR Wide Styler</h3>
-            <p class="product-desc">Far-infrared wide ceramic-tourmaline plates penetrate hair gently from within, locking in natural moisture while straightening thick or coarse textures fast.</p>
+            <h3>The IR+ Wide Styler</h3>
+            <p class="product-desc">Far-infrared wide 1.5" ceramic-tourmaline plates penetrate hair gently from within, locking in natural moisture while straightening thick or coarse textures fast.</p>
+            <ul class="tool-specs">
+              <li>Far-infrared strip heats hair from the inside out</li>
+              <li>Wide 1.5" floating plates for rapid single-pass styling</li>
+              <li>Digital temperature control up to 450°F</li>
+            </ul>
           </div>
           <div class="product-footer">
             <div>
               <span class="msrp-label">Official MSRP</span>
-              <span class="price-tag">$450.00</span>
+              <span class="price-tag">$500.00</span>
             </div>
-            <button class="btn-buy" onclick="openCheckout('The IR Wide Styler', '$450.00')">Purchase</button>
+            <button class="btn-buy" onclick="openCheckout('The IR+ Wide Styler', '$500.00')">Purchase</button>
           </div>
         </div>
 
@@ -744,17 +776,22 @@
           <div>
             <span class="warranty-badge">Lifetime Warranty</span>
             <div class="product-visual">
-              <span>Soleil Heated Styling Comb</span>
+              <span>Soleil Styling Comb Heat Brush</span>
             </div>
-            <h3>Precision Styling Comb</h3>
+            <h3>Styling Comb Heat Brush</h3>
             <p class="product-desc">Even-heat ceramic thermal comb designed for effortless root smoothing, silk-press prep, and flyaway control without scorching delicate strands.</p>
+            <ul class="tool-specs">
+              <li>Anti-scald ceramic teeth glide smoothly from root to tip</li>
+              <li>Rapid heat recovery for consistent tension & shine</li>
+              <li>Lightweight ergonomic handle with 360° swivel cord</li>
+            </ul>
           </div>
           <div class="product-footer">
             <div>
               <span class="msrp-label">Official MSRP</span>
-              <span class="price-tag">$300.00</span>
+              <span class="price-tag">$500.00</span>
             </div>
-            <button class="btn-buy" onclick="openCheckout('Precision Styling Comb', '$300.00')">Purchase</button>
+            <button class="btn-buy" onclick="openCheckout('Styling Comb Heat Brush', '$500.00')">Purchase</button>
           </div>
         </div>
 
@@ -763,17 +800,46 @@
           <div>
             <span class="warranty-badge">Botanical Repair</span>
             <div class="product-visual">
-              <span>Trio Miracle Oil & Moroccan Care</span>
+              <span>Soleil Trio Miracle Oil</span>
             </div>
-            <h3>Trio Miracle Oil & Serum</h3>
-            <p class="product-desc">Infused with pure Marula, Coconut, and Rose Petal extracts alongside Moroccan Argan nourishment to shield hair before heat styling and restore mirror-like shine.</p>
+            <h3>Trio Miracle Oil</h3>
+            <p class="product-desc">Tri-phase botanical elixir infused with pure Marula, Coconut, and Rose Petal extracts to shield hair before heat styling and restore mirror-like shine.</p>
+            <ul class="tool-specs">
+              <li>Triple-layer active formula: Marula, Rose Petal & Coconut</li>
+              <li>Weightless absorption with zero greasy residue</li>
+              <li>Thermal defense & humidity barrier for all hair types</li>
+            </ul>
+          </div>
+          <div class="product-footer">
+            <div>
+              <span class="msrp-label">Official MSRP</span>
+              <span class="price-tag">$300.00</span>
+            </div>
+            <button class="btn-buy" onclick="openCheckout('Trio Miracle Oil', '$300.00')">Purchase</button>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card">
+          <div>
+            <span class="warranty-badge">Botanical Repair</span>
+            <div class="product-visual">
+              <span>Soleil Moroccan Hair Serum</span>
+            </div>
+            <h3>Moroccan Hair Serum</h3>
+            <p class="product-desc">Concentrated Moroccan Argan nourishment formulated to repair dry ends, tame flyaways, and enhance elasticity before and after thermal styling.</p>
+            <ul class="tool-specs">
+              <li>Rich in Vitamin E & essential fatty acids</li>
+              <li>Seals split ends and boosts natural gloss</li>
+              <li>Color-safe, alcohol-free lightweight finish</li>
+            </ul>
           </div>
           <div class="product-footer">
             <div>
               <span class="msrp-label">Official MSRP</span>
               <span class="price-tag">$250.00</span>
             </div>
-            <button class="btn-buy" onclick="openCheckout('Trio Miracle Oil & Serum', '$250.00')">Purchase</button>
+            <button class="btn-buy" onclick="openCheckout('Moroccan Hair Serum', '$250.00')">Purchase</button>
           </div>
         </div>
       </div>
@@ -806,7 +872,7 @@
           </div>
           <div class="video-info">
             <h3>Infrared vs. Traditional Heat</h3>
-            <p>See how far-infrared technology on The IR Wide seals the hair cuticle at lower temperatures without moisture loss.</p>
+            <p>See how far-infrared technology on The IR+ Wide seals the hair cuticle at lower temperatures without moisture loss.</p>
           </div>
         </div>
 
@@ -862,9 +928,9 @@
           <select id="toolInterest" required>
             <option value="">Select Tool / Topic of Interest...</option>
             <option value="Purple Blowout Brush">Purple Blowout Brush Consultation</option>
-            <option value="The IR Wide Flat Iron">The IR Wide Infrared Styler Consultation</option>
-            <option value="Precision Styling Comb">Heated Styling Comb Consultation</option>
-            <option value="Botanical Oils & Masks">Trio Miracle Oil & Hair Care Routine</option>
+            <option value="The IR+ Wide Flat Iron">The IR+ Wide Infrared Styler Consultation</option>
+            <option value="Styling Comb Heat Brush">Styling Comb Heat Brush Consultation</option>
+            <option value="Trio Miracle Oil & Moroccan Serum">Trio Miracle Oil & Hair Care Routine</option>
           </select>
           <input type="date" id="visitDate" required>
           <button type="submit" class="btn-primary">Request Consultation Time</button>
@@ -925,14 +991,14 @@
 
   <script>
     const policies = {
-    return: {
-      title: "Return & Exchange Policy",
-      body: "<p><strong>NO REFUNDS. ALL SALES ARE FINAL.</strong></p><p><strong>30-Day Warranty Rule:</strong> To keep your manufacturer warranty active, you must register your tool within <strong>30 days</strong> of purchase at <strong>soleilhairtools.com</strong>. Keep your receipt.</p><p><strong>Tool Exchanges Only:</strong> Subject to inspection (opened consumables and serums are non-exchangeable). Online exchanges processed through soleilhairtools.com carry a <strong>$29.99</strong> shipping & handling fee; once the product arrives at the warehouse, processing can take <strong>7 to 10 business days</strong>. In-person convenience exchanges at our Meadowood Mall location carry a <strong>$75.00</strong> convenience fee.</p><p>Questions or help: <strong>Battleabeauty775@gmail.com</strong></p>",
-    },
-    shipping: {
-      title: "Shipping & Delivery Policy",
-      body: "<p>Orders placed online are processed within 1-2 business days via insured carrier with tracking provided to your email.</p><p>Local Reno customers may also arrange direct pickup at our Meadowood Mall retail kiosk during regular mall operating hours.</p>",
-    },
+      return: {
+        title: "Return & Exchange Policy",
+        body: "<p><strong>NO REFUNDS. ALL SALES ARE FINAL.</strong></p><p><strong>Exchanges Only:</strong> Opened styling tools may be exchanged within <strong>14 days</strong> of purchase with original receipt and all original packaging. All approved exchanges are subject to a <strong>40% restocking fee</strong> to cover packaging loss, technical inspection, and administrative costs.</p><p><strong>Strictly Final Sale (No Exchanges):</strong> Due to health, hygiene, and sterility standards, no returns or exchanges are accepted on Hair Extensions or Hair Care Products (hair masks, oils, serums, and styling liquids).</p><p><strong>Lifetime Warranty:</strong> Defective Soleil styling tools are covered under the official Soleil Manufacturer Lifetime Warranty.</p>"
+      },
+      shipping: {
+        title: "Shipping & Delivery Policy",
+        body: "<p>Orders placed online are processed within 1–2 business days via insured carrier with tracking provided to your email.</p><p>Local Reno customers may also arrange direct pickup at our Meadowood Mall retail kiosk during regular mall operating hours.</p>"
+      },
       terms: {
         title: "Terms of Service",
         body: "<p>Welcome to battle-beauty.com, operated by Battle Beauty, LLC. By accessing this site or purchasing products, you agree to our listed MSRP retail pricing, exchange terms, and manufacturer warranty guidelines.</p><p>Battle Beauty is a retail boutique and does not provide licensed salon services.</p>"
@@ -953,7 +1019,8 @@
       document.getElementById('modalTitle').innerText = productName + " (" + price + ")";
       document.getElementById('modalBody').innerHTML =
         "<p><strong>Official MSRP Price:</strong> " + price + " (Includes Manufacturer Lifetime Warranty)</p>" +
-        "<p>To complete your online order or request an invoice payment link, email <strong>beautysemin775@gmail.com</strong> or message us on Instagram <strong>@BattleBeauty775</strong> with your selected item.</p>";
+        "<p>To complete your online order or request an invoice payment link, email <strong>beautysemin775@gmail.com</strong> or message us on Instagram <strong>@BattleBeauty775</strong> with your selected item.</p>" +
+        "<p><em>Tip for Hozelito: Once you create a free Square or Stripe payment link for this item, you can paste that URL directly into this button!</em></p>";
       document.getElementById('infoModal').style.display = 'flex';
     }
 
