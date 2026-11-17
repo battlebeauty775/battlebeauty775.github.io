@@ -1,6 +1,4 @@
-import zipfile
-
-html_content = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -15,8 +13,8 @@ html_content = """<!DOCTYPE html>
       --bg-rose-base: #cf9b8e;
       --bg-rose-deep: #b37b6e;
       --espresso-dark: #1c100f;
-      --espresso-card: rgba(28, 16, 15, 0.94);
-      --espresso-soft: rgba(42, 24, 22, 0.88);
+      --espresso-card: rgba(28, 16, 15, 0.96);
+      --espresso-soft: rgba(42, 24, 22, 0.92);
       --gold-light: #f7ded6;
       --gold-mid: #e5be9e;
       --gold-metallic: linear-gradient(135deg, #fff5f2 0%, #f7ded6 45%, #e5be9e 100%);
@@ -42,7 +40,7 @@ html_content = """<!DOCTYPE html>
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(28, 16, 15, 0.96);
+      background: rgba(28, 16, 15, 0.98);
       border-bottom: 1px solid var(--border-gold);
       backdrop-filter: blur(10px);
       padding: 14px 24px;
@@ -106,14 +104,6 @@ html_content = """<!DOCTYPE html>
       margin-bottom: 45px;
     }
 
-    .hero-subtitle {
-      font-size: 11px;
-      letter-spacing: 4px;
-      color: var(--gold-mid);
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
     .location-pill {
       display: inline-block;
       background: rgba(207, 155, 142, 0.14);
@@ -124,13 +114,13 @@ html_content = """<!DOCTYPE html>
       font-size: 11px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .hero h1 {
-      font-size: clamp(32px, 5vw, 52px);
+      font-size: clamp(30px, 4.5vw, 48px);
       font-weight: 600;
-      line-height: 1.15;
+      line-height: 1.2;
       margin-bottom: 18px;
       background: var(--gold-metallic);
       -webkit-background-clip: text;
@@ -150,7 +140,7 @@ html_content = """<!DOCTYPE html>
     .btn-primary {
       background: var(--gold-metallic);
       color: var(--espresso-dark);
-      padding: 15px 30px;
+      padding: 14px 28px;
       border-radius: 8px;
       text-decoration: none;
       font-size: 12px;
@@ -159,15 +149,12 @@ html_content = """<!DOCTYPE html>
       text-transform: uppercase;
       border: none;
       cursor: pointer;
-      transition: transform 0.2s, opacity 0.2s;
     }
-
-    .btn-primary:hover { transform: translateY(-2px); opacity: 0.94; }
 
     .btn-outline {
       background: transparent;
       color: var(--gold-light);
-      padding: 15px 30px;
+      padding: 14px 28px;
       border-radius: 8px;
       text-decoration: none;
       font-size: 12px;
@@ -176,10 +163,7 @@ html_content = """<!DOCTYPE html>
       text-transform: uppercase;
       border: 1px solid var(--gold-mid);
       cursor: pointer;
-      transition: background 0.2s;
     }
-
-    .btn-outline:hover { background: rgba(229, 190, 158, 0.12); }
 
     /* Section Panels */
     .section-panel {
@@ -202,28 +186,26 @@ html_content = """<!DOCTYPE html>
       margin-bottom: 8px;
     }
 
-    .section-header h2 { font-size: clamp(28px, 4vw, 40px); color: #ffffff; font-weight: 600; margin-bottom: 10px; }
+    .section-header h2 { font-size: clamp(26px, 3.5vw, 38px); color: #ffffff; font-weight: 600; margin-bottom: 10px; }
     .section-header p { color: var(--text-muted); font-size: 14px; max-width: 680px; margin: 0 auto; }
 
-    /* Product Grid */
+    /* Product Grid - Fixed Overlap Bug */
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      align-items: stretch;
     }
 
     .product-card {
       background: var(--espresso-soft);
       border: 1px solid var(--border-gold);
       border-radius: 14px;
-      padding: 22px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.25s;
     }
-
-    .product-card:hover { transform: translateY(-4px); }
 
     .warranty-badge {
       display: inline-block;
@@ -240,30 +222,40 @@ html_content = """<!DOCTYPE html>
       margin-bottom: 14px;
     }
 
-    .product-img {
+    /* Safe Image Wrapper to Prevent Distortion & Overlaps */
+    .product-img-wrap {
       width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: contain;
+      height: 200px;
+      background: #120908;
+      border: 1px solid rgba(229, 190, 158, 0.2);
       border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
       margin-bottom: 16px;
-      border: 1px solid rgba(229, 190, 158, 0.25);
-      background: #f5ebdd;
     }
 
-    .product-card h3 { font-size: 23px; color: #ffffff; margin-bottom: 8px; }
-    .product-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; flex-grow: 1; }
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .product-card h3 { font-size: 22px; color: #ffffff; margin-bottom: 8px; }
+    .product-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; flex-grow: 1; }
 
     .tool-specs {
       list-style: none;
-      margin-bottom: 16px;
-      padding-top: 8px;
+      margin-bottom: 18px;
+      padding-top: 10px;
       border-top: 1px dashed rgba(229, 190, 158, 0.2);
     }
 
     .tool-specs li {
       font-size: 11.5px;
       color: var(--gold-light);
-      margin-bottom: 4px;
+      margin-bottom: 5px;
       padding-left: 14px;
       position: relative;
     }
@@ -276,7 +268,6 @@ html_content = """<!DOCTYPE html>
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 10px;
     }
 
     .price-tag { font-size: 20px; font-weight: 700; color: var(--gold-light); }
@@ -295,120 +286,7 @@ html_content = """<!DOCTYPE html>
       cursor: pointer;
     }
 
-    /* Infrared & Keratin Science Infographics Grid */
-    .science-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 28px;
-      align-items: start;
-      margin-bottom: 28px;
-    }
-
-    .infographic-card {
-      background: var(--espresso-soft);
-      border: 1px solid var(--border-gold);
-      border-radius: 16px;
-      padding: 18px;
-      text-align: center;
-    }
-
-    .infographic-card img {
-      width: 100%;
-      border-radius: 12px;
-      border: 1px solid rgba(229, 190, 158, 0.3);
-      margin-bottom: 14px;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.45);
-    }
-
-    .infographic-card h3 { font-size: 24px; color: var(--gold-light); margin-bottom: 8px; }
-    .infographic-card p { font-size: 13px; color: var(--text-muted); }
-
-    .pro-disclaimer-box {
-      background: rgba(207, 155, 142, 0.09);
-      border: 1px solid var(--border-gold);
-      border-left: 4px solid var(--gold-light);
-      border-radius: 12px;
-      padding: 20px 24px;
-      font-size: 13px;
-      color: var(--text-light);
-    }
-
-    .pro-disclaimer-box strong { color: var(--gold-light); }
-
-    /* Consultation Form */
-    .booking-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 30px;
-      align-items: center;
-    }
-
-    .booking-details h3 { font-size: 28px; color: var(--gold-light); margin-bottom: 12px; }
-    .booking-details p { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; }
-    .booking-list { list-style: none; margin-bottom: 20px; }
-
-    .booking-list li {
-      font-size: 13px;
-      color: var(--text-light);
-      margin-bottom: 10px;
-      padding-left: 20px;
-      position: relative;
-    }
-
-    .booking-list li::before { content: "✦"; position: absolute; left: 0; color: var(--gold-mid); }
-
-    .disclaimer-note {
-      font-size: 11px;
-      color: var(--text-muted);
-      background: rgba(255,255,255,0.04);
-      padding: 10px 14px;
-      border-radius: 8px;
-      border-left: 3px solid var(--gold-mid);
-    }
-
-    .booking-form {
-      background: var(--espresso-soft);
-      border: 1px solid var(--border-gold);
-      padding: 25px;
-      border-radius: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .booking-form input, .booking-form select {
-      padding: 13px 15px;
-      border-radius: 8px;
-      border: 1px solid var(--border-gold);
-      background: #120908;
-      color: var(--text-light);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 13px;
-      outline: none;
-    }
-
-    .booking-form input:focus, .booking-form select:focus { border-color: var(--gold-light); }
-
-    /* Location & Contact */
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      text-align: center;
-    }
-
-    .info-card {
-      background: var(--espresso-soft);
-      border: 1px solid var(--border-gold);
-      border-radius: 12px;
-      padding: 24px;
-    }
-
-    .info-card h3 { font-size: 22px; color: var(--gold-light); margin-bottom: 8px; }
-    .info-card p, .info-card a { font-size: 13px; color: var(--text-muted); text-decoration: none; display: block; }
-    .info-card a:hover { color: var(--gold-light); }
-
-    /* Footer */
+    /* Footer & Modals */
     footer {
       background: var(--espresso-dark);
       border-top: 1px solid var(--border-gold);
@@ -432,12 +310,11 @@ html_content = """<!DOCTYPE html>
 
     .footer-copy { font-size: 11px; color: var(--text-muted); letter-spacing: 1px; }
 
-    /* Modal */
     .modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.82);
       z-index: 200;
       align-items: center;
       justify-content: center;
@@ -466,9 +343,6 @@ html_content = """<!DOCTYPE html>
       font-size: 24px;
       cursor: pointer;
     }
-
-    .modal-box h3 { font-size: 28px; color: var(--gold-light); margin-bottom: 14px; }
-    .modal-box p { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; }
   </style>
 </head>
 <body>
@@ -476,12 +350,10 @@ html_content = """<!DOCTYPE html>
   <!-- Navigation -->
   <header>
     <div class="nav-container">
-      <a href="#" class="nav-brand">
-        <span class="nav-brand-text">Battle Beauty</span>
-      </a>
+      <a href="#" class="nav-brand"><span class="nav-brand-text">Battle Beauty</span></a>
       <nav class="nav-links">
-        <a href="#shop">Tools & Hair Care</a>
-        <a href="#ir-science">Infrared Science</a>
+        <a href="#shop">Shop Tools</a>
+        <a href="#visit">Location</a>
         <a href="#consultation" class="nav-cta">Free Consultation</a>
       </nav>
     </div>
@@ -491,24 +363,21 @@ html_content = """<!DOCTYPE html>
 
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-subtitle">Authorized Soleil Hair Tools Retailer • Reno, Nevada</div>
-      <div class="location-pill">Meadowood Mall • 5000 Meadowood Mall Circle</div>
-
+      <div class="location-pill">Meadowood Mall • Unit TT40 • Reno, NV</div>
       <h1>In the Battlefield, True Beauty Requires Intelligence</h1>
-      <p>Discover luxury thermal styling technology and botanical hair repair. Explore our official Soleil Hair Tools collection or schedule a free 1-on-1 tool demonstration and consultation at our Meadowood Mall boutique.</p>
-
+      <p>Authorized retailer of Soleil Hair Tools and professional botanical hair care. Visit our kiosk for free live product demonstrations and expert styling consultations.</p>
       <div class="hero-buttons">
-        <a href="#consultation" class="btn-primary">Book a Free Consultation</a>
-        <a href="#shop" class="btn-outline">Explore Collection</a>
+        <a href="#consultation" class="btn-primary">Book Free Consultation</a>
+        <a href="#shop" class="btn-outline">Shop Collection</a>
       </div>
     </section>
 
-    <!-- Full-Retail Online Store -->
+    <!-- Product Grid -->
     <section id="shop" class="section-panel">
       <div class="section-header">
         <span class="section-eyebrow">Official MSRP Retail Boutique</span>
         <h2>Soleil Hair Tools & Botanical Care</h2>
-        <p>Every Soleil styling tool includes an official Manufacturer Lifetime Warranty. Full specifications available via soleilhairtools.com.</p>
+        <p>Every tool includes an official Manufacturer Lifetime Warranty.</p>
       </div>
 
       <div class="product-grid">
@@ -516,13 +385,15 @@ html_content = """<!DOCTYPE html>
         <div class="product-card">
           <div>
             <span class="warranty-badge">Lifetime Warranty</span>
-            <img src="Soleil_BlowDryer_HairDryerBrush_purple_L40HDB-M3_1.webp" alt="Soleil Purple Blowout Brush" class="product-img">
+            <div class="product-img-wrap">
+              <img src="Soleil_BlowDryer_HairDryerBrush_purple_L40HDB-M3_1.webp" alt="Purple Blowout Brush">
+            </div>
             <h3>Purple Blowout Brush</h3>
-            <p class="product-desc">Ionic thermal styling brush engineered to smooth frizz, boost root volume, and deliver a glossy salon-quality blowout in a single pass.</p>
+            <p class="product-desc">Ionic thermal styling brush engineered to smooth frizz, boost root volume, and deliver a glossy salon-quality blowout.</p>
             <ul class="tool-specs">
-              <li>Negative-ion generator reduces static & frizz</li>
-              <li>360° airflow vents for fast, even drying</li>
-              <li>Tangle-free combination bristles & 3 heat settings</li>
+              <li>Negative-ion generator reduces static</li>
+              <li>360° airflow vents for fast drying</li>
+              <li>3 adjustable heat settings</li>
             </ul>
           </div>
           <div class="product-footer">
@@ -538,13 +409,15 @@ html_content = """<!DOCTYPE html>
         <div class="product-card">
           <div>
             <span class="warranty-badge">Lifetime Warranty</span>
-            <img src="ir-wide.jpg" alt="Soleil IR+ Wide Flat Iron" class="product-img" style="object-fit:cover; background:#160c0b;">
+            <div class="product-img-wrap">
+              <img src="ir-wide.jpg" alt="The IR+ Wide Styler">
+            </div>
             <h3>The IR+ Wide Styler</h3>
-            <p class="product-desc">Far-infrared wide 1.5" ceramic-tourmaline plates penetrate hair gently from within, locking in natural moisture while straightening thick or coarse textures fast.</p>
+            <p class="product-desc">Far-infrared wide 1.5" ceramic-tourmaline plates penetrate hair gently from within, locking in natural moisture fast.</p>
             <ul class="tool-specs">
-              <li>Far-infrared strip heats hair from the inside out</li>
-              <li>Wide 1.5" floating plates for rapid single-pass styling</li>
-              <li>Digital temperature control up to 450°F (Salon Keratin Rated)</li>
+              <li>Far-infrared core heating technology</li>
+              <li>Wide 1.5" floating plates</li>
+              <li>Digital temp control up to 450°F</li>
             </ul>
           </div>
           <div class="product-footer">
@@ -560,13 +433,15 @@ html_content = """<!DOCTYPE html>
         <div class="product-card">
           <div>
             <span class="warranty-badge">Lifetime Warranty</span>
-            <img src="styling-comb.jpg" alt="Soleil Styling Comb Heat Brush" class="product-img" style="object-fit:cover; background:#160c0b;">
+            <div class="product-img-wrap">
+              <img src="styling-comb.jpg" alt="Styling Comb Heat Brush">
+            </div>
             <h3>Styling Comb Heat Brush</h3>
-            <p class="product-desc">Even-heat ceramic thermal comb designed for effortless root smoothing, silk-press prep, and flyaway control without scorching delicate strands.</p>
+            <p class="product-desc">Even-heat ceramic thermal comb designed for effortless root smoothing, silk-press prep, and flyaway control.</p>
             <ul class="tool-specs">
-              <li>Anti-scald ceramic teeth glide smoothly from root to tip</li>
-              <li>Rapid heat recovery for consistent tension & shine</li>
-              <li>Lightweight ergonomic handle with 360° swivel cord</li>
+              <li>Anti-scald ceramic teeth</li>
+              <li>Rapid heat recovery</li>
+              <li>360° swivel cord</li>
             </ul>
           </div>
           <div class="product-footer">
@@ -582,13 +457,15 @@ html_content = """<!DOCTYPE html>
         <div class="product-card">
           <div>
             <span class="warranty-badge">Botanical Repair</span>
-            <img src="trio-oil.jpg" alt="Soleil Trio Miracle Oil & Moroccan Serum" class="product-img" style="object-fit:cover; background:#160c0b;">
+            <div class="product-img-wrap">
+              <img src="trio-oil.jpg" alt="Trio Miracle Oil">
+            </div>
             <h3>Trio Miracle Oil</h3>
-            <p class="product-desc">Tri-phase botanical elixir infused with pure Marula, Coconut, and Rose Petal extracts to shield hair before heat styling and restore mirror-like shine.</p>
+            <p class="product-desc">Tri-phase botanical elixir infused with pure Marula, Coconut, and Rose Petal extracts to shield hair before heat styling.</p>
             <ul class="tool-specs">
-              <li>Triple-layer active formula: Marula, Rose Petal & Coconut</li>
-              <li>Use 12–18" away (max 1–2 sprays) + warm blow-dry melt</li>
-              <li>Thermal defense & humidity barrier for all hair types</li>
+              <li>Triple-layer active formula</li>
+              <li>Use 12–18" away (1-2 sprays)</li>
+              <li>Thermal defense & humidity barrier</li>
             </ul>
           </div>
           <div class="product-footer">
@@ -602,113 +479,22 @@ html_content = """<!DOCTYPE html>
       </div>
     </section>
 
-    <!-- Infrared & Keratin Science Spotlight -->
-    <section id="ir-science" class="section-panel">
-      <div class="section-header">
-        <span class="section-eyebrow">Hair Science & Professional Heat Safety / Ciencia Capilar</span>
-        <h2>Infrared Red Light & 450°F Keratin Technology</h2>
-        <p>Understand how far-infrared light protects internal hair moisture—and why 450°F is engineered specifically for licensed salon keratin sealing protocols.</p>
-      </div>
-
-      <div class="science-grid">
-        <div class="infographic-card">
-          <img src="ir-redlight-guide.jpg" alt="The Power of Infrared and Red Light Therapy">
-          <h3>Infrared & Red Light Therapy</h3>
-          <p>Far-infrared waves warm the inner hair cortex gently from within rather than scorching the surface cuticle, locking in natural hydration and boosting daily elasticity.</p>
-        </div>
-
-        <div class="infographic-card">
-          <img src="ir-keratin-450.jpg" alt="Why 450F Is For Salon Keratin Sealing">
-          <h3>Why 450°F Is For Salon Keratin Sealing</h3>
-          <p>Professional flat irons reach 450°F (232°C) to thermally seal in-salon keratin and smoothing treatments. For daily home styling, lower infrared settings (280°F–390°F) deliver glass-like shine safely.</p>
-        </div>
-      </div>
-
-      <div class="pro-disclaimer-box">
-        <p style="margin-bottom:8px;"><strong>PROFESSIONAL HEAT NOTICE:</strong> 450°F is a professional-grade maximum temperature engineered for licensed salon keratin sealing protocols and is not recommended for routine daily home styling. Always ensure hair is 100% dry, apply thermal protection, and <strong>consult with your licensed hairstylist or the salon where you purchased your tool</strong> to determine the safest daily temperature setting for your specific hair type and chemical history.</p>
-        <p><strong>AVISO PROFESIONAL:</strong> 450°F es una temperatura máxima profesional diseñada para sellado de queratina en salón y no se recomienda para uso diario en casa. Siempre aplique protector térmico sobre cabello 100% seco y <strong>consulte con su estilista profesional o el salón donde adquirió su herramienta</strong> para elegir la temperatura diaria adecuada para su tipo de cabello.</p>
-      </div>
-    </section>
-
-    <!-- Free Consultation Form -->
-    <section id="consultation" class="section-panel">
-      <div class="booking-grid">
-        <div class="booking-details">
-          <span class="section-eyebrow">Personalized Kiosk Experience (Free Demos & Consultations)</span>
-          <h3>Book a Free Tool & Hair Care Consultation</h3>
-          <p>Unsure which thermal tool or botanical treatment matches your hair texture? Schedule a free product demonstration and consultation at our Meadowood Mall retail kiosk.</p>
-          <ul class="booking-list">
-            <li>Test heat settings and compare infrared plates vs. blowout brushes in person (Free)</li>
-            <li>Get custom temperature and hair-care recommendations for your hair type</li>
-            <li>Learn quick styling techniques directly from a Battle Beauty specialist</li>
-          </ul>
-          <div class="disclaimer-note">
-            <strong>Retail Boutique Notice:</strong> Battle Beauty is a luxury hair tool and hair care retail boutique, not a licensed hair salon. Consultations and demonstrations are 100% complimentary.
-          </div>
-        </div>
-
-        <form class="booking-form" onsubmit="handleBooking(event)">
-          <input type="text" id="clientName" placeholder="Your Full Name" required>
-          <input type="email" id="clientEmail" placeholder="Your Email Address" required>
-          <input type="tel" id="clientPhone" placeholder="Phone Number (for confirmation)" required>
-          <select id="toolInterest" required>
-            <option value="">Select Tool / Topic of Interest...</option>
-            <option value="Purple Blowout Brush">Purple Blowout Brush Demo</option>
-            <option value="The IR+ Wide Flat Iron">The IR+ Wide Styler Demo</option>
-            <option value="Styling Comb Heat Brush">Styling Comb Demo</option>
-            <option value="Trio Miracle Oil & Serum">Botanical Hair Care Routine</option>
-          </select>
-          <input type="date" id="visitDate" required>
-          <button type="submit" class="btn-primary">Request Free Consultation Time</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- Location & Contact -->
-    <section id="visit" class="section-panel">
-      <div class="section-header">
-        <span class="section-eyebrow">Reno, Nevada</span>
-        <h2>Visit Our Meadowood Mall Boutique</h2>
-        <p>Our retail kiosk relocates between prime concourse locations throughout the mall during peak seasons—reach out anytime if you need help spotting us!</p>
-      </div>
-
-      <div class="info-grid">
-        <div class="info-card">
-          <h3>Location</h3>
-          <p>Meadowood Mall</p>
-          <p>5000 Meadowood Mall Circle</p>
-          <p>Reno, NV 89502</p>
-        </div>
-        <div class="info-card">
-          <h3>Mall Hours</h3>
-          <p>Mon – Sat: 10:00 AM – 8:00 PM</p>
-          <p>Sunday: 11:00 AM – 6:00 PM</p>
-        </div>
-        <div class="info-card">
-          <h3>Contact & Social</h3>
-          <a href="mailto:battlebeauty775@gmail.com">battlebeauty775@gmail.com</a>
-          <a href="tel:7023257785">Phone / WhatsApp: (702) 325-7785</a>
-          <a href="https://instagram.com/BattleBeauty775" target="_blank">Instagram: @BattleBeauty775</a>
-        </div>
-      </div>
-    </section>
-
   </div>
 
-  <!-- Footer with Clean Categorized Policy Tabs (Returns/Exchanges, Warranty, Exchange Options) -->
+  <!-- Footer with Policies -->
   <footer>
     <div class="policy-links">
       <button onclick="openPolicy('returns')">Returns & Exchanges</button>
-      <button onclick="openPolicy('warranty')">Warranty Information</button>
+      <button onclick="openPolicy('warranty')">Warranty Info</button>
       <button onclick="openPolicy('options')">Exchange Options ($75 Fee)</button>
       <button onclick="openPolicy('shipping')">Shipping Policy</button>
       <button onclick="openPolicy('terms')">Terms of Service</button>
       <button onclick="openPolicy('privacy')">Privacy Policy</button>
     </div>
-    <p class="footer-copy">© 2026 Battle Beauty, LLC • Authorized Soleil Hair Tools Retailer • Meadowood Mall, Reno, NV</p>
+    <p class="footer-copy">© 2026 Battle Beauty, LLC • Meadowood Mall, Reno, NV • Phone/WhatsApp: 702-325-7785</p>
   </footer>
 
-  <!-- Modal Popup -->
+  <!-- Modal -->
   <div id="infoModal" class="modal-overlay" onclick="closeModal(event)">
     <div class="modal-box" onclick="event.stopPropagation()">
       <button class="modal-close" onclick="document.getElementById('infoModal').style.display='none'">×</button>
@@ -725,23 +511,23 @@ html_content = """<!DOCTYPE html>
       },
       warranty: {
         title: "Official Soleil Warranty Information",
-        body: "<p><strong>1. Online Warranty Registration:</strong> To help protect your purchase, please register your tool within 30 days of purchase online at <strong>soleilhairtools.com</strong>. Select 'WARRANTY' and 'REGISTER TOOL' and follow the quick steps.</p><p>Once registered, you can easily submit any future warranty claims directly through the manufacturer's website.</p>"
+        body: "<p>Register your tool within 30 days of purchase online at <strong>soleilhairtools.com</strong> under 'WARRANTY' -> 'REGISTER TOOL' to activate your manufacturer lifetime warranty.</p>"
       },
       options: {
         title: "Warranty Exchange Options & $75 Convenience Fee",
-        body: "<p>For defective Soleil styling tools covered under manufacturer warranty, you have two convenient options:</p><p><strong>Option 1: Mail-In Warranty Process</strong><br>Submit your claim online via soleilhairtools.com. Standard mail-in warranty processing requires a $29.99 shipping and handling fee and takes 7 to 10 business days (~2 weeks) once received.</p><p><strong>Option 2: Instant In-Person Kiosk Convenience Fee ($75)</strong><br>Need your replacement tool today? For your convenience, we are happy to offer immediate on-site kiosk exchanges. An in-person convenience fee of <strong>$75</strong> applies to bypass the mailing wait time. This service is strictly for exchanging your exact tool model and does not include hair styling or demonstrations.</p>"
+        body: "<p><strong>Option 1: Mail-In Warranty Process</strong><br>Submit your claim via soleilhairtools.com ($29.99 S&H fee, takes 7–10 business days).</p><p><strong>Option 2: Instant In-Person Kiosk Exchange ($75)</strong><br>For immediate replacement at our Meadowood Mall kiosk without the mailing wait time, an in-person convenience fee of <strong>$75</strong> applies.</p>"
       },
       shipping: {
         title: "Shipping & Delivery Policy",
-        body: "<p>Orders placed online are processed within 1–2 business days via insured carrier with tracking provided to your email.</p><p>Local Reno customers may also arrange direct pickup at our Meadowood Mall retail kiosk during regular mall operating hours.</p>"
+        body: "<p>Online orders process within 1–2 business days with tracking. Local Reno pickup available at Meadowood Mall kiosk.</p>"
       },
       terms: {
         title: "Terms of Service",
-        body: "<p>Welcome to battle-beauty.com, operated by Battle Beauty, LLC. By accessing this site or purchasing products, you agree to our listed MSRP retail pricing, exchange terms, and manufacturer warranty guidelines.</p><p>Battle Beauty is a retail boutique and does not provide licensed salon services.</p>"
+        body: "<p>Battle Beauty is an authorized retailer of Soleil Hair Tools at Meadowood Mall, Reno, NV.</p>"
       },
       privacy: {
         title: "Privacy Policy",
-        body: "<p>Battle Beauty, LLC respects your privacy. Personal information collected during consultation requests or purchases (name, email, phone number) is used solely to fulfill orders, schedule kiosk visits, and send requested updates. We never sell customer data to third parties.</p>"
+        body: "<p>Your personal data is used solely for order processing and kiosk appointments. We never sell your information.</p>"
       }
     };
 
@@ -753,24 +539,8 @@ html_content = """<!DOCTYPE html>
 
     function openCheckout(productName, price) {
       document.getElementById('modalTitle').innerText = productName + " (" + price + ")";
-      document.getElementById('modalBody').innerHTML =
-        "<p><strong>Official MSRP Price:</strong> " + price + " (Includes Manufacturer Lifetime Warranty)</p>" +
-        "<p>To complete your online order or request an invoice payment link, email <strong>battlebeauty775@gmail.com</strong> or message us on Instagram <strong>@BattleBeauty775</strong> with your selected item.</p>";
+      document.getElementById('modalBody').innerHTML = "<p>To complete your order, email <strong>battlebeauty775@gmail.com</strong> or WhatsApp <strong>702-325-7785</strong>.</p>";
       document.getElementById('infoModal').style.display = 'flex';
-    }
-
-    function handleBooking(e) {
-      e.preventDefault();
-      const name = document.getElementById('clientName').value;
-      const tool = document.getElementById('toolInterest').value;
-      const date = document.getElementById('visitDate').value;
-      document.getElementById('modalTitle').innerText = "Consultation Request Received";
-      document.getElementById('modalBody').innerHTML =
-        "<p>Result confirmed for <strong>" + name + "</strong>!</p>" +
-        "<p>We have noted your free consultation request for the <strong>" + tool + "</strong> on <strong>" + date + "</strong> at Meadowood Mall.</p>" +
-        "<p>For immediate confirmation, you can also text/WhatsApp us at <strong>(702) 325-7785</strong> or DM <strong>@BattleBeauty775</strong>.</p>";
-      document.getElementById('infoModal').style.display = 'flex';
-      e.target.reset();
     }
 
     function closeModal(e) {
@@ -780,9 +550,4 @@ html_content = """<!DOCTYPE html>
     }
   </script>
 </body>
-</html>"""
-
-with open("index.html", "w", encoding="utf-8") as f:
-    f.write(html_content)
-
-print("index.html successfully updated and saved.")
+</html>
