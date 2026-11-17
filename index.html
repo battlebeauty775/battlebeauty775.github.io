@@ -104,8 +104,6 @@
       margin-bottom: 45px;
     }
 
-    .hero-emblem { width: 95px; height: 95px; margin: 0 auto 15px; display: block; }
-
     .hero-subtitle {
       font-size: 11px;
       letter-spacing: 4px;
@@ -335,68 +333,6 @@
 
     .pro-disclaimer-box strong { color: var(--gold-light); }
 
-    /* Hair Academy & Video Hub */
-    .academy-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 24px;
-      margin-bottom: 30px;
-    }
-
-    .video-card {
-      background: var(--espresso-soft);
-      border: 1px solid var(--border-gold);
-      border-radius: 14px;
-      overflow: hidden;
-    }
-
-    .video-placeholder {
-      height: 190px;
-      background: linear-gradient(135deg, #2b1816, #140a09);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid var(--border-gold);
-      padding: 20px;
-      text-align: center;
-    }
-
-    .play-circle {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: var(--gold-metallic);
-      color: var(--espresso-dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .video-info { padding: 20px; }
-    .video-info h3 { font-size: 21px; color: var(--gold-light); margin-bottom: 8px; }
-    .video-info p { font-size: 13px; color: var(--text-muted); }
-
-    .tips-bar {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-      margin-top: 20px;
-    }
-
-    .tip-box {
-      background: rgba(207, 155, 142, 0.08);
-      border: 1px solid var(--border-gold);
-      border-radius: 12px;
-      padding: 20px;
-    }
-
-    .tip-box h4 { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--gold-light); margin-bottom: 6px; }
-    .tip-box p { font-size: 13px; color: var(--text-muted); }
-
     /* Consultation Form */
     .booking-grid {
       display: grid;
@@ -539,23 +475,12 @@
   <header>
     <div class="nav-container">
       <a href="#" class="nav-brand">
-        <svg width="34" height="34" viewBox="0 0 100 100" fill="none">
-          <path d="M50 15C35 15 20 30 25 50C28 62 40 68 50 65C62 61 68 45 60 35C55 28 42 30 40 40C38 48 48 52 52 48" stroke="url(#navGold)" stroke-width="4" stroke-linecap="round"/>
-          <path d="M35 25C25 35 22 55 35 70C43 79 60 80 70 70C82 58 78 38 65 30C55 24 40 32 45 45" stroke="url(#navGold)" stroke-width="3" stroke-linecap="round"/>
-          <defs>
-            <linearGradient id="navGold" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#FFF5F2"/><stop offset="0.5" stop-color="#F7DED6"/><stop offset="1" stop-color="#E5BE9E"/>
-            </linearGradient>
-          </defs>
-        </svg>
         <span class="nav-brand-text">Battle Beauty</span>
       </a>
       <nav class="nav-links">
         <a href="#shop">Tools & Hair Care</a>
-        <a href="#ir-science">Infrared & Keratin Science</a>
-        <a href="#academy">Hair Academy</a>
-        <a href="#visit">Visit Kiosk</a>
-        <a href="#consultation" class="nav-cta">1-on-1 Consultation</a>
+        <a href="#ir-science">Infrared Science</a>
+        <a href="#consultation" class="nav-cta">Free Consultation</a>
       </nav>
     </div>
   </header>
@@ -564,25 +489,15 @@
 
     <!-- Hero Section -->
     <section class="hero">
-      <svg class="hero-emblem" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 15C35 15 20 30 25 50C28 62 40 68 50 65C62 61 68 45 60 35C55 28 42 30 40 40C38 48 48 52 52 48" stroke="url(#heroGold)" stroke-width="3.5" stroke-linecap="round"/>
-        <path d="M35 25C25 35 22 55 35 70C43 79 60 80 70 70C82 58 78 38 65 30C55 24 40 32 45 45" stroke="url(#heroGold)" stroke-width="2.5" stroke-linecap="round"/>
-        <defs>
-          <linearGradient id="heroGold" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#FFF5F2"/><stop offset="0.5" stop-color="#F7DED6"/><stop offset="1" stop-color="#E5BE9E"/>
-          </linearGradient>
-        </defs>
-      </svg>
-
       <div class="hero-subtitle">Authorized Soleil Hair Tools Retailer • Reno, Nevada</div>
       <div class="location-pill">Meadowood Mall • 5000 Meadowood Mall Circle</div>
 
       <h1>In the Battlefield, True Beauty Requires Intelligence</h1>
-      <p>Discover luxury thermal styling technology, botanical hair repair, and personalized hair education. Explore our official Soleil Hair Tools collection online or book a personalized $75 in-person tool consultation at our Meadowood Mall boutique.</p>
+      <p>Discover luxury thermal styling technology and botanical hair repair. Explore our official Soleil Hair Tools collection or schedule a free 1-on-1 tool demonstration and consultation at our Meadowood Mall kiosk.</p>
 
       <div class="hero-buttons">
-        <a href="#consultation" class="btn-primary">Book a $75 In-Person Consultation</a>
-        <a href="#shop" class="btn-outline">Explore Soleil Collection</a>
+        <a href="#consultation" class="btn-primary">Book a Free Consultation</a>
+        <a href="#shop" class="btn-outline">Explore Collection</a>
       </div>
     </section>
 
@@ -595,7 +510,7 @@
       </div>
 
       <div class="product-grid">
-        <!-- Product 1: Purple Blowout Brush -->
+        <!-- Product 1 -->
         <div class="product-card">
           <div>
             <span class="warranty-badge">Lifetime Warranty</span>
@@ -617,7 +532,7 @@
           </div>
         </div>
 
-        <!-- Product 2: The IR+ Wide Styler -->
+        <!-- Product 2 -->
         <div class="product-card">
           <div>
             <span class="warranty-badge">Lifetime Warranty</span>
@@ -639,7 +554,7 @@
           </div>
         </div>
 
-        <!-- Product 3: Styling Comb Heat Brush -->
+        <!-- Product 3 -->
         <div class="product-card">
           <div>
             <span class="warranty-badge">Lifetime Warranty</span>
@@ -661,7 +576,7 @@
           </div>
         </div>
 
-        <!-- Product 4: Trio Miracle Oil -->
+        <!-- Product 4 -->
         <div class="product-card">
           <div>
             <span class="warranty-badge">Botanical Repair</span>
@@ -682,32 +597,10 @@
             <button class="btn-buy" onclick="openCheckout('Trio Miracle Oil', '$300.00')">Purchase</button>
           </div>
         </div>
-
-        <!-- Product 5: Moroccan Hair Serum -->
-        <div class="product-card">
-          <div>
-            <span class="warranty-badge">Botanical Repair</span>
-            <img src="trio-oil.jpg" alt="Soleil Moroccan Hair Serum" class="product-img" style="object-fit:cover; background:#160c0b;">
-            <h3>Moroccan Hair Serum</h3>
-            <p class="product-desc">Concentrated Moroccan Argan nourishment formulated to repair dry ends, tame flyaways, and enhance elasticity before and after thermal styling.</p>
-            <ul class="tool-specs">
-              <li>Rich in Vitamin E & essential fatty acids</li>
-              <li>Seals split ends and boosts natural gloss</li>
-              <li>Color-safe, alcohol-free lightweight finish</li>
-            </ul>
-          </div>
-          <div class="product-footer">
-            <div>
-              <span class="msrp-label">Official MSRP</span>
-              <span class="price-tag">$250.00</span>
-            </div>
-            <button class="btn-buy" onclick="openCheckout('Moroccan Hair Serum', '$250.00')">Purchase</button>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- Infrared & Keratin Science Spotlight -->
+    <!-- Infrared & Keratin Science Spotlight (Infographics Restored) -->
     <section id="ir-science" class="section-panel">
       <div class="section-header">
         <span class="section-eyebrow">Hair Science & Professional Heat Safety / Ciencia Capilar</span>
@@ -735,79 +628,20 @@
       </div>
     </section>
 
-    <!-- Hair Academy & Video Hub -->
-    <section id="academy" class="section-panel">
-      <div class="section-header">
-        <span class="section-eyebrow">Education • Tips • Video Tutorials</span>
-        <h2>Battle Beauty Hair Academy</h2>
-        <p>Healthy hair starts with intelligent heat management. Watch our step-by-step tool guides and master your daily styling routine.</p>
-      </div>
-
-      <div class="academy-grid">
-        <div class="video-card">
-          <div class="video-placeholder">
-            <div class="play-circle">▶</div>
-            <span style="font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-light);">Tutorial Video Slot 1</span>
-          </div>
-          <div class="video-info">
-            <h3>10-Minute Volume Blowout</h3>
-            <p>Learn sectioning angles and tension control with the Purple Blowout Brush for bouncy, frizz-free movement.</p>
-          </div>
-        </div>
-
-        <div class="video-card">
-          <div class="video-placeholder">
-            <div class="play-circle">▶</div>
-            <span style="font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-light);">Tutorial Video Slot 2</span>
-          </div>
-          <div class="video-info">
-            <h3>Infrared vs. Traditional Heat</h3>
-            <p>See how far-infrared technology on The IR+ Wide seals the hair cuticle at lower temperatures without moisture loss.</p>
-          </div>
-        </div>
-
-        <div class="video-card">
-          <div class="video-placeholder">
-            <div class="play-circle">▶</div>
-            <span style="font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-light);">Tutorial Video Slot 3</span>
-          </div>
-          <div class="video-info">
-            <h3>The Botanical Shield Routine</h3>
-            <p>How to layer Trio Miracle Oil (12–18" arm's-length mist + warm blow-dry melt) and Moroccan Hair Serum for weightless silkiness.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="tips-bar">
-        <div class="tip-box">
-          <h4>01. Match Heat to Hair Density</h4>
-          <p>Fine, color-treated, or post-keratin hair thrives between 280°F–350°F, while thick or coarse textures respond best to steady infrared heat at 350°F–390°F.</p>
-        </div>
-        <div class="tip-box">
-          <h4>02. Never Press Damp Strands</h4>
-          <p>Always dry hair 100% before using flat irons or styling combs to prevent internal steam damage to the hair shaft.</p>
-        </div>
-        <div class="tip-box">
-          <h4>03. Seal With Cold & Botanicals</h4>
-          <p>Finish every style with a cool-air pass and 1–2 light sprays of Trio Miracle Oil from 12–18 inches away to lock out humidity.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- $75 In-Person Tool & Hair Care Consultation Form -->
+    <!-- Free Consultation Form -->
     <section id="consultation" class="section-panel">
       <div class="booking-grid">
         <div class="booking-details">
-          <span class="section-eyebrow">Personalized Kiosk Experience ($75 In-Person Fee)</span>
-          <h3>Book a $75 In-Person Tool & Hair Care Consultation</h3>
-          <p>Unsure which thermal tool or botanical treatment matches your hair texture? Schedule a private 1-on-1 product consultation at our Meadowood Mall retail kiosk for $75.</p>
+          <span class="section-eyebrow">Personalized Kiosk Experience (Free Demos & Consultations)</span>
+          <h3>Book a Free Tool & Hair Care Consultation</h3>
+          <p>Unsure which thermal tool or botanical treatment matches your hair texture? Schedule a free product demonstration and consultation at our Meadowood Mall retail kiosk.</p>
           <ul class="booking-list">
-            <li>Test heat settings and compare infrared plates vs. blowout brushes in person ($75 session)</li>
-            <li>Get custom temperature and hair-care routine recommendations for your hair type</li>
+            <li>Test heat settings and compare infrared plates vs. blowout brushes in person (Free)</li>
+            <li>Get custom temperature and hair-care recommendations for your hair type</li>
             <li>Learn quick styling techniques directly from a Battle Beauty specialist</li>
           </ul>
           <div class="disclaimer-note">
-            <strong>Retail Boutique Notice:</strong> Battle Beauty is a luxury hair tool and hair care retail boutique, not a licensed hair salon. Consultations ($75 in-person fee) focus exclusively on product education and tool demonstrations.
+            <strong>Retail Boutique Notice:</strong> Battle Beauty is a luxury hair tool and hair care retail boutique, not a licensed hair salon. Consultations and demonstrations are 100% complimentary.
           </div>
         </div>
 
@@ -816,14 +650,14 @@
           <input type="email" id="clientEmail" placeholder="Your Email Address" required>
           <input type="tel" id="clientPhone" placeholder="Phone Number (for confirmation)" required>
           <select id="toolInterest" required>
-            <option value="">Select Tool / Topic of Interest ($75 Session)...</option>
-            <option value="Purple Blowout Brush ($75)">Purple Blowout Brush Consultation ($75)</option>
-            <option value="The IR+ Wide Flat Iron ($75)">The IR+ Wide Infrared Styler Consultation ($75)</option>
-            <option value="Styling Comb Heat Brush ($75)">Styling Comb Heat Brush Consultation ($75)</option>
-            <option value="Trio Miracle Oil & Moroccan Serum ($75)">Trio Miracle Oil & Hair Care Routine ($75)</option>
+            <option value="">Select Tool / Topic of Interest...</option>
+            <option value="Purple Blowout Brush">Purple Blowout Brush Demo</option>
+            <option value="The IR+ Wide Flat Iron">The IR+ Wide Styler Demo</option>
+            <option value="Styling Comb Heat Brush">Styling Comb Demo</option>
+            <option value="Trio Miracle Oil & Serum">Botanical Hair Care Routine</option>
           </select>
           <input type="date" id="visitDate" required>
-          <button type="submit" class="btn-primary">Request $75 Consultation Time</button>
+          <button type="submit" class="btn-primary">Request Free Consultation Time</button>
         </form>
       </div>
     </section>
@@ -833,7 +667,7 @@
       <div class="section-header">
         <span class="section-eyebrow">Reno, Nevada</span>
         <h2>Visit Our Meadowood Mall Boutique</h2>
-        <p>Our retail kiosk moves between prime concourse locations throughout the mall during peak holiday seasons—reach out anytime if you need help spotting us!</p>
+        <p>Our retail kiosk relocates between prime concourse locations throughout the mall during peak seasons—reach out anytime if you need help spotting us!</p>
       </div>
 
       <div class="info-grid">
@@ -883,7 +717,7 @@
     const policies = {
       return: {
         title: "Return & Exchange Policy",
-        body: "<p><strong>NO REFUNDS. ALL SALES ARE FINAL.</strong></p><p><strong>Exchanges Only:</strong> Opened styling tools may be exchanged within <strong>14 days</strong> of purchase with original receipt and all original packaging. All approved exchanges are subject to a <strong>40% restocking fee</strong> to cover packaging loss, technical inspection, and administrative costs.</p><p><strong>Strictly Final Sale (No Exchanges):</strong> Due to health, hygiene, and sterility standards, no returns or exchanges are accepted on Hair Extensions or Hair Care Products (hair masks, oils, serums, and styling liquids).</p><p><strong>Lifetime Warranty:</strong> Defective Soleil styling tools are covered under the official Soleil Manufacturer Lifetime Warranty.</p>"
+        body: "<p><strong>NO REFUNDS. ALL SALES ARE FINAL.</strong></p><p><strong>Exchanges Only:</strong> Opened styling tools may be exchanged within <strong>14 days</strong> of purchase with original receipt and all original packaging. All approved exchanges are subject to a <strong>40% restocking fee</strong> to cover packaging loss, technical inspection, and administrative costs.</p><p><strong>Strictly Final Sale (No Exchanges):</strong> Due to health, hygiene, and sterility standards, no returns or exchanges are accepted on Hair Extensions or Hair Care Products (hair masks, oils, serums, and styling liquids).</p><p><strong>Warranty & Defective Exchanges:</strong> Defective Soleil tools require registration on soleilhairtools.com within 30 days of purchase. Warranty replacements can be processed via mail for a $29.99 shipping/handling fee (taking 7–10 business days / ~2 weeks), OR clients may utilize our <strong>$75 in-person convenience fee</strong> for an instant on-the-spot exchange right at the kiosk to bypass the mailing wait.</p>"
       },
       shipping: {
         title: "Shipping & Delivery Policy",
@@ -918,10 +752,10 @@
       const name = document.getElementById('clientName').value;
       const tool = document.getElementById('toolInterest').value;
       const date = document.getElementById('visitDate').value;
-      document.getElementById('modalTitle').innerText = "$75 Consultation Request Received";
+      document.getElementById('modalTitle').innerText = "Consultation Request Received";
       document.getElementById('modalBody').innerHTML =
         "<p>Thank you, <strong>" + name + "</strong>!</p>" +
-        "<p>We have noted your $75 in-person retail consultation request for the <strong>" + tool + "</strong> on <strong>" + date + "</strong> at Meadowood Mall.</p>" +
+        "<p>We have noted your free consultation request for the <strong>" + tool + "</strong> on <strong>" + date + "</strong> at Meadowood Mall.</p>" +
         "<p>For immediate confirmation, you can also text/WhatsApp us at <strong>(702) 325-7785</strong> or DM <strong>@BattleBeauty775</strong>.</p>";
       document.getElementById('infoModal').style.display = 'flex';
       e.target.reset();
