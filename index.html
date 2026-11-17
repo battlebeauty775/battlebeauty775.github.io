@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+import zipfile
+
+html_content = """<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -323,7 +325,7 @@
 
     .pro-disclaimer-box {
       background: rgba(207, 155, 142, 0.09);
-      border: 1px solid var(--gold-mid);
+      border: 1px solid var(--border-gold);
       border-left: 4px solid var(--gold-light);
       border-radius: 12px;
       padding: 20px 24px;
@@ -493,7 +495,7 @@
       <div class="location-pill">Meadowood Mall • 5000 Meadowood Mall Circle</div>
 
       <h1>In the Battlefield, True Beauty Requires Intelligence</h1>
-      <p>Discover luxury thermal styling technology and botanical hair repair. Explore our official Soleil Hair Tools collection or schedule a free 1-on-1 tool demonstration and consultation at our Meadowood Mall kiosk.</p>
+      <p>Discover luxury thermal styling technology and botanical hair repair. Explore our official Soleil Hair Tools collection or schedule a free 1-on-1 tool demonstration and consultation at our Meadowood Mall boutique.</p>
 
       <div class="hero-buttons">
         <a href="#consultation" class="btn-primary">Book a Free Consultation</a>
@@ -600,7 +602,7 @@
       </div>
     </section>
 
-    <!-- Infrared & Keratin Science Spotlight (Infographics Restored) -->
+    <!-- Infrared & Keratin Science Spotlight -->
     <section id="ir-science" class="section-panel">
       <div class="section-header">
         <span class="section-eyebrow">Hair Science & Professional Heat Safety / Ciencia Capilar</span>
@@ -693,10 +695,12 @@
 
   </div>
 
-  <!-- Footer & Legal Policies -->
+  <!-- Footer with Clean Categorized Policy Tabs (Returns/Exchanges, Warranty, Exchange Options) -->
   <footer>
     <div class="policy-links">
-      <button onclick="openPolicy('return')">Return & Exchange Policy</button>
+      <button onclick="openPolicy('returns')">Returns & Exchanges</button>
+      <button onclick="openPolicy('warranty')">Warranty Information</button>
+      <button onclick="openPolicy('options')">Exchange Options ($75 Fee)</button>
       <button onclick="openPolicy('shipping')">Shipping Policy</button>
       <button onclick="openPolicy('terms')">Terms of Service</button>
       <button onclick="openPolicy('privacy')">Privacy Policy</button>
@@ -715,9 +719,17 @@
 
   <script>
     const policies = {
-      return: {
+      returns: {
         title: "Return & Exchange Policy",
-        body: "<p><strong>NO REFUNDS. ALL SALES ARE FINAL.</strong></p><p><strong>Exchanges Only:</strong> Opened styling tools may be exchanged within <strong>14 days</strong> of purchase with original receipt and all original packaging. All approved exchanges are subject to a <strong>40% restocking fee</strong> to cover packaging loss, technical inspection, and administrative costs.</p><p><strong>Strictly Final Sale (No Exchanges):</strong> Due to health, hygiene, and sterility standards, no returns or exchanges are accepted on Hair Extensions or Hair Care Products (hair masks, oils, serums, and styling liquids).</p><p><strong>Warranty & Defective Exchanges:</strong> Defective Soleil tools require registration on soleilhairtools.com within 30 days of purchase. Warranty replacements can be processed via mail for a $29.99 shipping/handling fee (taking 7–10 business days / ~2 weeks), OR clients may utilize our <strong>$75 in-person convenience fee</strong> for an instant on-the-spot exchange right at the kiosk to bypass the mailing wait.</p>"
+        body: "<p><strong>NO REFUNDS. ALL SALES ARE FINAL.</strong></p><p>Opened styling tools may be exchanged within <strong>14 days</strong> of purchase with original receipt and all original packaging. All approved exchanges are subject to a <strong>40% restocking fee</strong> to cover packaging loss, technical inspection, and administrative costs.</p><p><strong>Strictly Final Sale (No Exchanges):</strong> Due to health, hygiene, and sterility standards, no returns or exchanges are accepted on Hair Extensions or Hair Care Products (hair masks, oils, serums, and styling liquids).</p>"
+      },
+      warranty: {
+        title: "Official Soleil Warranty Information",
+        body: "<p><strong>1. Online Warranty Registration:</strong> To help protect your purchase, please register your tool within 30 days of purchase online at <strong>soleilhairtools.com</strong>. Select 'WARRANTY' and 'REGISTER TOOL' and follow the quick steps.</p><p>Once registered, you can easily submit any future warranty claims directly through the manufacturer's website.</p>"
+      },
+      options: {
+        title: "Warranty Exchange Options & $75 Convenience Fee",
+        body: "<p>For defective Soleil styling tools covered under manufacturer warranty, you have two convenient options:</p><p><strong>Option 1: Mail-In Warranty Process</strong><br>Submit your claim online via soleilhairtools.com. Standard mail-in warranty processing requires a $29.99 shipping and handling fee and takes 7 to 10 business days (~2 weeks) once received.</p><p><strong>Option 2: Instant In-Person Kiosk Convenience Fee ($75)</strong><br>Need your replacement tool today? For your convenience, we are happy to offer immediate on-site kiosk exchanges. An in-person convenience fee of <strong>$75</strong> applies to bypass the mailing wait time. This service is strictly for exchanging your exact tool model and does not include hair styling or demonstrations.</p>"
       },
       shipping: {
         title: "Shipping & Delivery Policy",
@@ -754,7 +766,7 @@
       const date = document.getElementById('visitDate').value;
       document.getElementById('modalTitle').innerText = "Consultation Request Received";
       document.getElementById('modalBody').innerHTML =
-        "<p>Thank you, <strong>" + name + "</strong>!</p>" +
+        "<p>Result confirmed for <strong>" + name + "</strong>!</p>" +
         "<p>We have noted your free consultation request for the <strong>" + tool + "</strong> on <strong>" + date + "</strong> at Meadowood Mall.</p>" +
         "<p>For immediate confirmation, you can also text/WhatsApp us at <strong>(702) 325-7785</strong> or DM <strong>@BattleBeauty775</strong>.</p>";
       document.getElementById('infoModal').style.display = 'flex';
@@ -768,4 +780,9 @@
     }
   </script>
 </body>
-</html>
+</html>"""
+
+with open("index.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print("index.html successfully updated and saved.")
