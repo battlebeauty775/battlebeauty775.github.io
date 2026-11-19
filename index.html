@@ -1,115 +1,991 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Battle Beauty | Paragraph & Layout Spacing Fix</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battle Beauty | Luxury Hair Tools & Hair Academy • Reno, NV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* 1. Box-sizing ensures padding and borders never push elements outside their boxes */
-    *, *::before, *::after {
-      box-sizing: border-box;
+    :root {
+      --bg-rose-light: #dfaaa0;
+      --bg-rose-base: #cf9b8e;
+      --bg-rose-deep: #b37b6e;
+      --espresso-dark: #1c100f;
+      --espresso-card: rgba(28, 16, 15, 0.94);
+      --espresso-soft: rgba(42, 24, 22, 0.88);
+      --gold-light: #f7ded6;
+      --gold-mid: #e5be9e;
+      --gold-metallic: linear-gradient(135deg, #fff5f2 0%, #f7ded6 45%, #e5be9e 100%);
+      --text-light: #fff5f2;
+      --text-muted: #d6bab2;
+      --border-gold: rgba(229, 190, 158, 0.35);
     }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
 
     body {
-      margin: 0;
-      padding: 24px 16px;
-      background: #cf9b8e;
-      color: #fff5f2;
-      font-family: Arial, Helvetica, sans-serif;
-      /* 2. Generous line-height stops tall letters or accents from touching lines above/below */
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* 3. Keep paragraphs in normal flow with clear bottom spacing and safe wrapping */
-    p {
-      margin-top: 0;
-      margin-bottom: 16px;
+      background: radial-gradient(circle at top center, var(--bg-rose-light) 0%, var(--bg-rose-base) 50%, var(--bg-rose-deep) 100%);
+      color: var(--text-light);
+      font-family: 'Montserrat', sans-serif;
       line-height: 1.65;
-      max-width: 100%;
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-      position: static;
+      min-height: 100vh;
     }
 
-    p:last-child {
-      margin-bottom: 0;
+    h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
+
+    /* Navigation Bar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(28, 16, 15, 0.96);
+      border-bottom: 1px solid var(--border-gold);
+      backdrop-filter: blur(10px);
+      padding: 14px 24px;
     }
 
-    .container {
-      max-width: 960px;
+    .nav-container {
+      max-width: 1160px;
       margin: 0 auto;
-      background: #1c100f;
-      border: 1px solid rgba(229, 190, 158, 0.4);
-      border-radius: 16px;
-      padding: 28px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
     }
 
-    /* 4. Use Grid or Flex with explicit gap so cards/blocks never overlap */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      align-items: start;
+    .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+
+    .nav-brand-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      background: var(--gold-metallic);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .card {
-      background: #2a1816;
-      border: 1px solid rgba(229, 190, 158, 0.3);
-      border-radius: 12px;
-      padding: 20px;
-      min-width: 0; /* Prevents grid children from overflowing and overlapping neighbors */
+    .nav-links { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
+
+    .nav-links a {
+      color: var(--gold-light);
+      text-decoration: none;
+      font-size: 11.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.2s;
     }
 
-    .card h2 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      line-height: 1.3;
-      font-size: 20px;
+    .nav-links a:hover, .nav-links a.active { color: #ffffff; text-decoration: underline; text-underline-offset: 5px; }
+
+    .nav-shop-btn {
+      background: var(--gold-metallic);
+      color: var(--espresso-dark) !important;
+      padding: 9px 18px;
+      border-radius: 25px;
+      font-weight: 700 !important;
+      text-decoration: none !important;
     }
 
-    /* Keep images contained cleanly above/below text, never behind text */
-    .img-box {
-      width: 100%;
-      height: 180px;
+    .lang-toggle {
+      background: rgba(229, 190, 158, 0.14);
+      border: 1px solid var(--gold-mid);
+      color: var(--gold-light);
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lang-toggle:hover { background: var(--gold-mid); color: var(--espresso-dark); }
+
+    .wrapper { max-width: 1140px; margin: 0 auto; padding: 35px 20px 60px; }
+
+    /* Hero Section */
+    .hero {
+      background: var(--espresso-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 55px 30px;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
+      margin-bottom: 45px;
+    }
+
+    .hero-emblem { width: 92px; height: 92px; margin: 0 auto 14px; display: block; }
+
+    .hero-subtitle {
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: var(--gold-mid);
+      text-transform: uppercase;
       margin-bottom: 14px;
-      background: #120908;
+    }
+
+    .location-pill {
+      display: inline-block;
+      background: rgba(207, 155, 142, 0.14);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+      padding: 7px 18px;
+      border-radius: 30px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      background: var(--gold-metallic);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 690px;
+      margin: 0 auto 32px;
+      color: var(--text-muted);
+      font-size: 15px;
+      font-weight: 300;
+    }
+
+    .hero-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--gold-metallic);
+      color: var(--espresso-dark);
+      padding: 15px 30px;
       border-radius: 8px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, opacity 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); opacity: 0.94; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold-light);
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid var(--gold-mid);
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { background: rgba(229, 190, 158, 0.12); }
+
+    /* Section Panels */
+    .section-panel {
+      background: var(--espresso-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 45px 30px;
+      margin-bottom: 45px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .section-header { text-align: center; margin-bottom: 35px; }
+
+    .section-eyebrow {
+      font-size: 11px;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--gold-mid);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .section-header h2 { font-size: clamp(28px, 4vw, 40px); color: #ffffff; font-weight: 600; margin-bottom: 10px; }
+    .section-header p { color: var(--text-muted); font-size: 14px; max-width: 700px; margin: 0 auto; }
+
+    /* Red LED & Infrared Science Cards */
+    .science-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 26px;
+    }
+
+    .science-card {
+      background: var(--espresso-soft);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 26px;
+    }
+
+    .science-tag {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      background: rgba(229, 190, 158, 0.14);
+      border: 1px solid var(--border-gold);
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .science-card h3 { font-size: 25px; color: var(--gold-light); margin-bottom: 10px; }
+    .science-card p { font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px; }
+
+    .science-list { list-style: none; }
+    .science-list li {
+      font-size: 12.5px;
+      color: var(--text-light);
+      margin-bottom: 7px;
+      padding-left: 16px;
+      position: relative;
+    }
+    .science-list li::before { content: "✦"; position: absolute; left: 0; color: var(--gold-mid); font-size: 11px; }
+
+    .pro-disclaimer-box {
+      background: rgba(207, 155, 142, 0.09);
+      border: 1px solid var(--gold-mid);
+      border-left: 4px solid var(--gold-light);
+      border-radius: 12px;
+      padding: 20px 24px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .pro-disclaimer-box strong { color: var(--gold-light); }
+
+    /* Empty Video Tutorial Slots */
+    .academy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .video-card {
+      background: var(--espresso-soft);
+      border: 1px solid var(--border-gold);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .video-empty-slot {
+      height: 205px;
+      background: linear-gradient(135deg, #2b1816, #140a09);
+      border-bottom: 1px dashed var(--gold-mid);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .play-circle {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: rgba(229, 190, 158, 0.14);
+      border: 1px solid var(--gold-mid);
+      color: var(--gold-light);
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      font-size: 18px;
+      margin-bottom: 10px;
     }
 
-    .img-box img {
-      display: block;
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
+    .slot-badge {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      font-weight: 600;
     }
+
+    .slot-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .video-info { padding: 20px; }
+    .video-info h3 { font-size: 22px; color: var(--gold-light); margin-bottom: 6px; }
+    .video-info p { font-size: 13px; color: var(--text-muted); }
+
+    /* Consultation Form */
+    .booking-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 30px;
+      align-items: center;
+    }
+
+    .booking-details h3 { font-size: 29px; color: var(--gold-light); margin-bottom: 12px; }
+    .booking-details p { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; }
+    .booking-list { list-style: none; margin-bottom: 20px; }
+
+    .booking-list li {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .booking-list li::before { content: "✦"; position: absolute; left: 0; color: var(--gold-mid); }
+
+    .disclaimer-note {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.04);
+      padding: 12px 15px;
+      border-radius: 8px;
+      border-left: 3px solid var(--gold-mid);
+    }
+
+    .booking-form {
+      background: var(--espresso-soft);
+      border: 1px solid var(--border-gold);
+      padding: 25px;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .booking-form input, .booking-form select {
+      padding: 13px 15px;
+      border-radius: 8px;
+      border: 1px solid var(--border-gold);
+      background: #120908;
+      color: var(--text-light);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .booking-form input:focus, .booking-form select:focus { border-color: var(--gold-light); }
+
+    /* Location & Contact */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+
+    .info-card {
+      background: var(--espresso-soft);
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .info-card h3 { font-size: 22px; color: var(--gold-light); margin-bottom: 8px; }
+    .info-card p, .info-card a { font-size: 13px; color: var(--text-muted); text-decoration: none; display: block; }
+    .info-card a:hover { color: var(--gold-light); }
+
+    /* Footer & Categorized Policy Tabs */
+    footer {
+      background: var(--espresso-dark);
+      border-top: 1px solid var(--border-gold);
+      padding: 45px 20px;
+      text-align: center;
+    }
+
+    .footer-heading {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-mid);
+      margin-bottom: 18px;
+    }
+
+    .policy-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      max-width: 980px;
+      margin: 0 auto 24px;
+    }
+
+    .policy-tabs button {
+      background: rgba(229, 190, 158, 0.1);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .policy-tabs button:hover {
+      background: var(--gold-metallic);
+      color: var(--espresso-dark);
+    }
+
+    .footer-copy { font-size: 11px; color: var(--text-muted); letter-spacing: 1px; }
+
+    /* Modal Popup */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.82);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-box {
+      background: var(--espresso-dark);
+      border: 1px solid var(--gold-mid);
+      border-radius: 16px;
+      max-width: 600px;
+      width: 100%;
+      padding: 32px;
+      position: relative;
+      max-height: 85vh;
+      overflow-y: auto;
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: var(--gold-light);
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .modal-box h3 { font-size: 28px; color: var(--gold-light); margin-bottom: 14px; padding-right: 25px; }
+    .modal-box p { font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px; line-height: 1.65; }
+    .modal-box strong { color: var(--text-light); }
   </style>
 </head>
 <body>
-  <main class="container">
-    <div class="grid">
-      <article class="card">
-        <div class="img-box">
-          <img src="your-image-1.jpg" alt="Product 1" />
-        </div>
-        <h2>Section One Heading</h2>
-        <p>First paragraph of text with clean spacing below it so it never touches the next paragraph.</p>
-        <p>Second paragraph of text in its own block, flowing naturally below the first paragraph.</p>
-      </article>
 
-      <article class="card">
-        <div class="img-box">
-          <img src="your-image-2.jpg" alt="Product 2" />
-        </div>
-        <h2>Section Two Heading</h2>
-        <p>First paragraph in the second column, separated cleanly by grid gap and paragraph margins.</p>
-        <p>Second paragraph in the second column with safe line height and word wrapping.</p>
-      </article>
+  <!-- Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <svg width="34" height="34" viewBox="0 0 100 100" fill="none">
+          <path d="M50 15C35 15 20 30 25 50C28 62 40 68 50 65C62 61 68 45 60 35C55 28 42 30 40 40C38 48 48 52 52 48" stroke="url(#navGold)" stroke-width="4" stroke-linecap="round"/>
+          <path d="M35 25C25 35 22 55 35 70C43 79 60 80 70 70C82 58 78 38 65 30C55 24 40 32 45 45" stroke="url(#navGold)" stroke-width="3" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="navGold" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFF5F2"/><stop offset="0.5" stop-color="#F7DED6"/><stop offset="1" stop-color="#E5BE9E"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="nav-brand-text">Battle Beauty</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="active" data-i18n="nav_home">Home</a>
+        <a href="#red-led" data-i18n="nav_led">Red LED & Heat Science</a>
+        <a href="#tutorials" data-i18n="nav_videos">Video Tutorials</a>
+        <a href="#consultation" data-i18n="nav_consult">Free Consultation</a>
+        <a href="shop.html" class="nav-shop-btn" data-i18n="nav_shop">Shop Tools & Care</a>
+        <button class="lang-toggle" id="langBtn" onclick="toggleLanguage()">Español</button>
+      </nav>
     </div>
-  </main>
+  </header>
+
+  <div class="wrapper">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <svg class="hero-emblem" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 15C35 15 20 30 25 50C28 62 40 68 50 65C62 61 68 45 60 35C55 28 42 30 40 40C38 48 48 52 52 48" stroke="url(#heroGold)" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M35 25C25 35 22 55 35 70C43 79 60 80 70 70C82 58 78 38 65 30C55 24 40 32 45 45" stroke="url(#heroGold)" stroke-width="2.5" stroke-linecap="round"/>
+        <defs>
+          <linearGradient id="heroGold" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFF5F2"/><stop offset="0.5" stop-color="#F7DED6"/><stop offset="1" stop-color="#E5BE9E"/>
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <div class="hero-subtitle" data-i18n="hero_sub">Authorized Soleil Hair Tools Retailer • Reno, Nevada</div>
+      <div class="location-pill" data-i18n="hero_loc">Meadowood Mall • 5000 Meadowood Mall Circle</div>
+
+      <h1 data-i18n="hero_title">In the Battlefield, True Beauty Requires Intelligence</h1>
+      <p data-i18n="hero_desc">Welcome to Battle Beauty—your luxury home for Red LED & Far-Infrared styling education, video tutorials, complimentary 1-on-1 tool consultations, and official Soleil Hair Tools & botanical hair care.</p>
+
+      <div class="hero-buttons">
+        <a href="shop.html" class="btn-primary" data-i18n="hero_btn_shop">Shop Tools & Hair Care</a>
+        <a href="#consultation" class="btn-outline" data-i18n="hero_btn_consult">Book Free Consultation</a>
+      </div>
+    </section>
+
+    <!-- Red LED & Infrared Hair Science Section -->
+    <section id="red-led" class="section-panel">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="led_eyebrow">Red Light & Far-Infrared Technology</span>
+        <h2 data-i18n="led_title">How Red LED & Infrared Light Protect Your Hair</h2>
+        <p data-i18n="led_sub">Traditional styling tools bake the outer hair cuticle first. Red LED and far-infrared light work smarter—warming strands gently from the inside out so your hair stays hydrated, glossy, and resilient.</p>
+      </div>
+
+      <div class="science-grid">
+        <div class="science-card">
+          <span class="science-tag" data-i18n="led_card1_tag">Inside-Out Moisture Lock</span>
+          <h3 data-i18n="led_card1_title">Red LED & Far-Infrared Benefits</h3>
+          <p data-i18n="led_card1_p">Red light wavelengths and far-infrared energy penetrate directly into the inner hair cortex without scorching the delicate outer cuticle layer.</p>
+          <ul class="science-list">
+            <li data-i18n="led_card1_li1">Seals natural moisture inside the hair shaft for lasting shine</li>
+            <li data-i18n="led_card1_li2">Reduces frizz, static, and heat-induced dryness</li>
+            <li data-i18n="led_card1_li3">Delivers smooth, sleek results in fewer passes</li>
+          </ul>
+        </div>
+
+        <div class="science-card">
+          <span class="science-tag" data-i18n="led_card2_tag">Smart Temperature Control</span>
+          <h3 data-i18n="led_card2_title">Why Professional Tools Reach 450°F</h3>
+          <p data-i18n="led_card2_p">Professional infrared flat irons reach up to 450°F (232°C) specifically for licensed salon keratin and smoothing treatments—not everyday home styling.</p>
+          <ul class="science-list">
+            <li data-i18n="led_card2_li1">Fine or color-treated hair: 280°F – 350°F</li>
+            <li data-i18n="led_card2_li2">Medium to thick hair: 350°F – 390°F</li>
+            <li data-i18n="led_card2_li3">450°F: Reserved for professional salon keratin sealing protocols</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pro-disclaimer-box">
+        <p data-i18n="led_safety_note"><strong>HEAT SAFETY GUIDANCE:</strong> Always style on 100% dry hair, apply a heat protectant, and consult your licensed hairstylist or ask us during a free kiosk demo to choose the safest temperature setting for your hair type.</p>
+      </div>
+    </section>
+
+    <!-- Video Tutorials Section (Empty Ready-to-Fill Slots) -->
+    <section id="tutorials" class="section-panel">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="vid_eyebrow">Battle Beauty Hair Academy</span>
+        <h2 data-i18n="vid_title">Step-by-Step Video Tutorials</h2>
+        <p data-i18n="vid_sub">Our video library is being updated with fresh styling demonstrations, blowout tutorials, and hair care routines. Check back soon as new videos go live!</p>
+      </div>
+
+      <div class="academy-grid">
+        <!-- Empty Video Slot 1 -->
+        <div class="video-card">
+          <div class="video-empty-slot">
+            <div class="play-circle">▶</div>
+            <span class="slot-badge" data-i18n="vid_slot_badge">Video Slot 01 • Coming Soon</span>
+            <span class="slot-sub" data-i18n="vid_slot_sub">Ready for upcoming tutorial upload</span>
+          </div>
+          <div class="video-info">
+            <h3 data-i18n="vid1_title">Blowout Brush Volume & Bristle Care</h3>
+            <p data-i18n="vid1_desc">How to detangle hair completely first and achieve a smooth, frizz-free blowout without stressing the bristles.</p>
+          </div>
+        </div>
+
+        <!-- Empty Video Slot 2 -->
+        <div class="video-card">
+          <div class="video-empty-slot">
+            <div class="play-circle">▶</div>
+            <span class="slot-badge" data-i18n="vid_slot_badge">Video Slot 02 • Coming Soon</span>
+            <span class="slot-sub" data-i18n="vid_slot_sub">Ready for upcoming tutorial upload</span>
+          </div>
+          <div class="video-info">
+            <h3 data-i18n="vid2_title">Red LED & IR+ Wide Styler Guide</h3>
+            <p data-i18n="vid2_desc">Selecting the right temperature for your hair texture and gliding smoothly for glass-like shine.</p>
+          </div>
+        </div>
+
+        <!-- Empty Video Slot 3 -->
+        <div class="video-card">
+          <div class="video-empty-slot">
+            <div class="play-circle">▶</div>
+            <span class="slot-badge" data-i18n="vid_slot_badge">Video Slot 03 • Coming Soon</span>
+            <span class="slot-sub" data-i18n="vid_slot_sub">Ready for upcoming tutorial upload</span>
+          </div>
+          <div class="video-info">
+            <h3 data-i18n="vid3_title">Botanical Hair Care Layering</h3>
+            <p data-i18n="vid3_desc">How to apply Trio Miracle Oil, Moroccan Serum, and Moroccan Mask for thermal protection and hydration.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Free Consultation Section -->
+    <section id="consultation" class="section-panel">
+      <div class="booking-grid">
+        <div class="booking-details">
+          <span class="section-eyebrow" data-i18n="con_eyebrow">100% Free Kiosk Experience</span>
+          <h3 data-i18n="con_title">Book a Free 1-on-1 Tool & Hair Care Consultation</h3>
+          <p data-i18n="con_desc">Visit our Meadowood Mall retail kiosk for a complimentary demonstration to find the ideal styling tool and hair care routine for your hair texture.</p>
+          <ul class="booking-list">
+            <li data-i18n="con_li1">Free hands-on comparison of Red LED infrared plates, styling combs, and blowout brushes</li>
+            <li data-i18n="con_li2">Personalized heat-setting and hair care recommendations</li>
+            <li data-i18n="con_li3">Step-by-step guidance on registering your tool on soleilhairtools.com</li>
+          </ul>
+          <div class="disclaimer-note" data-i18n="con_notice">
+            <strong>Retail Boutique Notice:</strong> Battle Beauty is a luxury hair tool and hair care retail boutique, not a licensed hair salon. All consultations and product demonstrations are 100% free.
+          </div>
+        </div>
+
+        <form class="booking-form" onsubmit="handleBooking(event)">
+          <input type="text" id="clientName" data-i18n-placeholder="form_name" placeholder="Your Full Name" required>
+          <input type="email" id="clientEmail" data-i18n-placeholder="form_email" placeholder="Your Email Address" required>
+          <input type="tel" id="clientPhone" data-i18n-placeholder="form_phone" placeholder="Phone / WhatsApp Number" required>
+          <select id="toolInterest" required>
+            <option value="" data-i18n="form_select_default">Select Tool / Topic of Interest...</option>
+            <option value="Purple Blowout Brush">Purple Blowout Brush</option>
+            <option value="The IR+ Wide Styler">The IR+ Wide Styler</option>
+            <option value="Styling Comb Heat Brush">Styling Comb Heat Brush</option>
+            <option value="Botanical Hair Care">Trio Miracle Oil / Moroccan Hair Care</option>
+          </select>
+          <input type="date" id="visitDate" required>
+          <button type="submit" class="btn-primary" data-i18n="form_btn">Request Free Consultation</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Location & Contact -->
+    <section id="visit" class="section-panel">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="vis_eyebrow">Reno, Nevada</span>
+        <h2 data-i18n="vis_title">Visit Our Meadowood Mall Boutique</h2>
+        <p data-i18n="vis_desc">Our retail kiosk relocates between prime concourse locations throughout the mall during seasonal shifts—call or text anytime if you need help finding us!</p>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h3 data-i18n="vis_card1_title">Location</h3>
+          <p>Meadowood Mall</p>
+          <p>5000 Meadowood Mall Circle</p>
+          <p>Reno, NV 89502</p>
+        </div>
+        <div class="info-card">
+          <h3 data-i18n="vis_card2_title">Mall Hours</h3>
+          <p data-i18n="vis_hours1">Mon – Sat: 10:00 AM – 8:00 PM</p>
+          <p data-i18n="vis_hours2">Sunday: 11:00 AM – 6:00 PM</p>
+        </div>
+        <div class="info-card">
+          <h3 data-i18n="vis_card3_title">Contact & Social</h3>
+          <a href="mailto:battlebeauty775@gmail.com">battlebeauty775@gmail.com</a>
+          <a href="tel:7023257785">Phone / WhatsApp: (702) 325-7785</a>
+          <a href="https://instagram.com/BattleBeauty775" target="_blank">Instagram: @BattleBeauty775</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer with Categorized Policy & Legal Tabs -->
+  <footer>
+    <div class="footer-heading" data-i18n="footer_heading">Customer Care, Warranty & Legal Policies</div>
+    <div class="policy-tabs">
+      <button onclick="openPolicy('warranty_reg')" data-i18n="tab_warranty_reg">Warranty & Tool Registration</button>
+      <button onclick="openPolicy('soleil_process')" data-i18n="tab_soleil_process">Soleil Warranty Process & $75 Fee</button>
+      <button onclick="openPolicy('refund_policy')" data-i18n="tab_refund">Refund & Exchange Policy</button>
+      <button onclick="openPolicy('disclaimer')" data-i18n="tab_disclaimer">Client Responsibility Disclaimer</button>
+      <button onclick="openPolicy('shipping')" data-i18n="tab_shipping">Shipping & Pickup</button>
+      <button onclick="openPolicy('terms_privacy')" data-i18n="tab_terms">Terms & Privacy</button>
+    </div>
+    <p class="footer-copy" data-i18n="footer_copy">© 2026 Battle Beauty, LLC • Authorized Soleil Hair Tools Retailer • Meadowood Mall, Reno, NV</p>
+  </footer>
+
+  <!-- Modal Popup -->
+  <div id="infoModal" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="document.getElementById('infoModal').style.display='none'">×</button>
+      <h3 id="modalTitle">Policy</h3>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    let currentLang = localStorage.getItem('bb_lang') || 'en';
+
+    const translations = {
+      en: {
+        nav_home: "Home",
+        nav_led: "Red LED & Heat Science",
+        nav_videos: "Video Tutorials",
+        nav_consult: "Free Consultation",
+        nav_shop: "Shop Tools & Care",
+        hero_sub: "Authorized Soleil Hair Tools Retailer • Reno, Nevada",
+        hero_loc: "Meadowood Mall • 5000 Meadowood Mall Circle",
+        hero_title: "In the Battlefield, True Beauty Requires Intelligence",
+        hero_desc: "Welcome to Battle Beauty—your luxury home for Red LED & Far-Infrared styling education, video tutorials, complimentary 1-on-1 tool consultations, and official Soleil Hair Tools & botanical hair care.",
+        hero_btn_shop: "Shop Tools & Hair Care",
+        hero_btn_consult: "Book Free Consultation",
+        led_eyebrow: "Red Light & Far-Infrared Technology",
+        led_title: "How Red LED & Infrared Light Protect Your Hair",
+        led_sub: "Traditional styling tools bake the outer hair cuticle first. Red LED and far-infrared light work smarter—warming strands gently from the inside out so your hair stays hydrated, glossy, and resilient.",
+        led_card1_tag: "Inside-Out Moisture Lock",
+        led_card1_title: "Red LED & Far-Infrared Benefits",
+        led_card1_p: "Red light wavelengths and far-infrared energy penetrate directly into the inner hair cortex without scorching the delicate outer cuticle layer.",
+        led_card1_li1: "Seals natural moisture inside the hair shaft for lasting shine",
+        led_card1_li2: "Reduces frizz, static, and heat-induced dryness",
+        led_card1_li3: "Delivers smooth, sleek results in fewer passes",
+        led_card2_tag: "Smart Temperature Control",
+        led_card2_title: "Why Professional Tools Reach 450°F",
+        led_card2_p: "Professional infrared flat irons reach up to 450°F (232°C) specifically for licensed salon keratin and smoothing treatments—not everyday home styling.",
+        led_card2_li1: "Fine or color-treated hair: 280°F – 350°F",
+        led_card2_li2: "Medium to thick hair: 350°F – 390°F",
+        led_card2_li3: "450°F: Reserved for professional salon keratin sealing protocols",
+        led_safety_note: "<strong>HEAT SAFETY GUIDANCE:</strong> Always style on 100% dry hair, apply a heat protectant, and consult your licensed hairstylist or ask us during a free kiosk demo to choose the safest temperature setting for your hair type.",
+        vid_eyebrow: "Battle Beauty Hair Academy",
+        vid_title: "Step-by-Step Video Tutorials",
+        vid_sub: "Our video library is being updated with fresh styling demonstrations, blowout tutorials, and hair care routines. Check back soon as new videos go live!",
+        vid_slot_badge: "Video Slot • Coming Soon",
+        vid_slot_sub: "Ready for upcoming tutorial upload",
+        vid1_title: "Blowout Brush Volume & Bristle Care",
+        vid1_desc: "How to detangle hair completely first and achieve a smooth, frizz-free blowout without stressing the bristles.",
+        vid2_title: "Red LED & IR+ Wide Styler Guide",
+        vid2_desc: "Selecting the right temperature for your hair texture and gliding smoothly for glass-like shine.",
+        vid3_title: "Botanical Hair Care Layering",
+        vid3_desc: "How to apply Trio Miracle Oil, Moroccan Serum, and Moroccan Mask for thermal protection and hydration.",
+        con_eyebrow: "100% Free Kiosk Experience",
+        con_title: "Book a Free 1-on-1 Tool & Hair Care Consultation",
+        con_desc: "Visit our Meadowood Mall retail kiosk for a complimentary demonstration to find the ideal styling tool and hair care routine for your hair texture.",
+        con_li1: "Free hands-on comparison of Red LED infrared plates, styling combs, and blowout brushes",
+        con_li2: "Personalized heat-setting and hair care recommendations",
+        con_li3: "Step-by-step guidance on registering your tool on soleilhairtools.com",
+        con_notice: "<strong>Retail Boutique Notice:</strong> Battle Beauty is a luxury hair tool and hair care retail boutique, not a licensed hair salon. All consultations and product demonstrations are 100% free.",
+        form_name: "Your Full Name",
+        form_email: "Your Email Address",
+        form_phone: "Phone / WhatsApp Number",
+        form_select_default: "Select Tool / Topic of Interest...",
+        form_btn: "Request Free Consultation",
+        vis_eyebrow: "Reno, Nevada",
+        vis_title: "Visit Our Meadowood Mall Boutique",
+        vis_desc: "Our retail kiosk relocates between prime concourse locations throughout the mall during seasonal shifts—call or text anytime if you need help finding us!",
+        vis_card1_title: "Location",
+        vis_card2_title: "Mall Hours",
+        vis_hours1: "Mon – Sat: 10:00 AM – 8:00 PM",
+        vis_hours2: "Sunday: 11:00 AM – 6:00 PM",
+        vis_card3_title: "Contact & Social",
+        footer_heading: "Customer Care, Warranty & Legal Policies",
+        tab_warranty_reg: "Warranty & Tool Registration",
+        tab_soleil_process: "Soleil Warranty Process & $75 Fee",
+        tab_refund: "Refund & Exchange Policy",
+        tab_disclaimer: "Client Responsibility Disclaimer",
+        tab_shipping: "Shipping & Pickup",
+        tab_terms: "Terms & Privacy",
+        footer_copy: "© 2026 Battle Beauty, LLC • Authorized Soleil Hair Tools Retailer • Meadowood Mall, Reno, NV",
+        policies: {
+          warranty_reg: {
+            title: "Warranty & Mandatory 30-Day Tool Registration",
+            body: "<p><strong>Official Manufacturer Lifetime Warranty:</strong> Every genuine Soleil styling tool includes a Manufacturer Lifetime Warranty backed by Soleil Hair Tools.</p><p><strong>How to Register Your Tool (Within 30 Days):</strong> To activate your warranty coverage, you must register your tool online within <strong>30 days of purchase</strong> at <strong>soleilhairtools.com</strong>. Click on <strong>WARRANTY → REGISTER TOOL</strong> and enter your purchase details and serial number.</p><p><strong>Unregistered Tools Policy:</strong> Unregistered tools are <strong>not covered</strong> under the warranty replacement program. However, at the owner's discretion, clients with unregistered tools may be eligible for a discounted replacement price.</p>"
+          },
+          soleil_process: {
+            title: "Soleil Warranty Process & $75 In-Person Convenience Fee",
+            body: "<p>For <strong>registered tools</strong> experiencing a covered manufacturer defect, clients have two ways to process a replacement:</p><p><strong>Option 1: Standard Mail-In Process via soleilhairtools.com</strong><br>Submit your warranty claim directly online at <strong>soleilhairtools.com</strong>. Standard manufacturer mail-in processing requires a <strong>$29.99 shipping & handling fee</strong> and takes approximately <strong>7 to 10 business days (~2 weeks)</strong> once received by the manufacturer.</p><p><strong>Option 2: $75 In-Person Convenience Fee (Meadowood Mall Location)</strong><br>Need your replacement right away without waiting for mail shipping? For tools that have been <strong>properly registered</strong>, Battle Beauty offers an instant on-the-spot replacement at our Meadowood Mall kiosk for a <strong>$75 in-person convenience fee</strong>. This service covers immediate exact-model replacement only (no styling services) and applies strictly to registered tools.</p><p><strong>Note on Unregistered Tools:</strong> Unregistered tools do not qualify for warranty replacement, though they may be eligible for a discounted replacement price at owner's discretion.</p>"
+          },
+          refund_policy: {
+            title: "Refund & Exchange Policy (And Why We Have It)",
+            body: "<p><strong>NO REFUNDS. ALL SALES ARE FINAL.</strong></p><p><strong>14-Day Exchange Window (Opened Styling Tools):</strong> Opened styling tools may be exchanged within <strong>14 days</strong> of purchase when returned with the original receipt and all original packaging. Approved exchanges are subject to a <strong>40% restocking fee</strong> to cover packaging replacement, technical inspection, sanitization, and administrative costs.</p><p><strong>Strictly Final Sale (No Exchanges):</strong> Hair extensions and all botanical hair care products (oils, serums, hair masks, shampoos, and styling liquids) are <strong>100% final sale</strong> with no returns or exchanges.</p><p><strong>Why We Enforce This Policy:</strong> Your health, hygiene, and peace of mind come first. Just as you would never want to purchase a hair brush, hot tool, serum, or hair extension that has already been opened or used in someone else's home, strict health and sterility standards prevent us from reselling opened hair care or personal styling items.</p>"
+          },
+          disclaimer: {
+            title: "Client Responsibility & Tool Care Disclaimer",
+            body: "<p>By purchasing and using styling tools or hair care products from Battle Beauty, the client acknowledges and agrees to the following responsibilities:</p><p><strong>1. Sole Responsibility for Tool Registration:</strong> The client is <strong>solely responsible for registering their tool</strong> within 30 days of purchase at <strong>soleilhairtools.com</strong>. Failure to register within 30 days voids warranty replacement eligibility (unregistered tools are not covered, though they may be eligible for a discounted price at the owner's discretion).</p><p><strong>2. Appropriate Heat Setting Selection:</strong> The client is solely responsible for selecting and using the appropriate heat setting for their specific hair type, texture, and chemical history. Always style on 100% dry hair with thermal protection.</p><p><strong>3. Blowout / Dryer Brush Bristle Care:</strong> <strong>Dryer brush bristles will bend or break if you do not detangle your hair first.</strong> Blowout brushes are finishing and smoothing tools—never force or pull the brush through tangled or knotted hair. Bristle breakage caused by brushing un-detangled hair is physical misuse and is not covered under manufacturer warranty.</p>"
+          },
+          shipping: {
+            title: "Shipping & Local Kiosk Pickup Policy",
+            body: "<p><strong>Online Orders:</strong> Orders placed through our connected store are processed within 1–2 business days via insured carrier with tracking sent to your email.</p><p><strong>Free Local Pickup (Reno, NV):</strong> Local shoppers may select free in-person pickup at our Meadowood Mall retail kiosk (5000 Meadowood Mall Circle, Reno, NV 89502) during regular mall hours.</p>"
+          },
+          terms_privacy: {
+            title: "Terms of Service & Privacy Policy",
+            body: "<p><strong>Terms of Service:</strong> Welcome to battle-beauty.com, operated by Battle Beauty, LLC. By using this site or purchasing products, you agree to our official MSRP retail pricing, exchange policies, and client care disclaimers. Battle Beauty is a retail boutique and does not offer licensed salon services.</p><p><strong>Privacy Policy:</strong> Battle Beauty, LLC respects your privacy. Contact details shared during consultation requests or checkout are used strictly to fulfill orders and communicate with you. We never sell or rent your personal data.</p>"
+          }
+        }
+      },
+      es: {
+        nav_home: "Inicio",
+        nav_led: "Luz LED Roja y Calor",
+        nav_videos: "Tutoriales en Video",
+        nav_consult: "Consulta Gratis",
+        nav_shop: "Tienda (Herramientas y Cuidado)",
+        hero_sub: "Distribuidor Autorizado de Soleil Hair Tools • Reno, Nevada",
+        hero_loc: "Meadowood Mall • 5000 Meadowood Mall Circle",
+        hero_title: "En el Campo de Batalla, la Verdadera Belleza Requiere Inteligencia",
+        hero_desc: "Bienvenido a Battle Beauty: tu hogar de lujo para educación capilar con Luz LED Roja e Infrarroja, tutoriales en video, consultas gratuitas 1 a 1 y herramientas oficiales Soleil Hair Tools y cuidado botánico.",
+        hero_btn_shop: "Ir a la Tienda",
+        hero_btn_consult: "Reservar Consulta Gratis",
+        led_eyebrow: "Tecnología de Luz Roja e Infrarrojo Lejano",
+        led_title: "Cómo la Luz LED Roja e Infrarroja Protegen Tu Cabello",
+        led_sub: "Las herramientas tradicionales queman primero la cutícula externa. La luz LED roja y el infrarrojo lejano calientan suavemente desde adentro hacia afuera para mantener tu cabello hidratado, brillante y fuerte.",
+        led_card1_tag: "Hidratación Interna",
+        led_card1_title: "Beneficios de la Luz LED Roja e Infrarroja",
+        led_card1_p: "Las ondas de luz roja y energía infrarroja penetran suavemente en la corteza interna del cabello sin quemar la delicada cutícula exterior.",
+        led_card1_li1: "Sella la humedad natural dentro de la hebra para un brillo duradero",
+        led_card1_li2: "Reduce el frizz, la estática y la resequedad por calor",
+        led_card1_li3: "Logra un acabado liso y sedoso en menos pasadas",
+        led_card2_tag: "Control Inteligente de Temperatura",
+        led_card2_title: "Por Qué las Herramientas Profesionales Llegan a 450°F",
+        led_card2_p: "Las planchas infrarrojas profesionales alcanzan 450°F (232°C) específicamente para tratamientos de queratina y alisado en salón, no para uso diario en casa.",
+        led_card2_li1: "Cabello fino o teñido: 280°F – 350°F",
+        led_card2_li2: "Cabello medio a grueso: 350°F – 390°F",
+        led_card2_li3: "450°F: Reservado para protocolos profesionales de sellado de queratina en salón",
+        led_safety_note: "<strong>GUÍA DE SEGURIDAD TÉRMICA:</strong> Usa siempre las herramientas sobre cabello 100% seco, aplica protector térmico y consulta con tu estilista profesional o pregúntanos en una demostración gratuita en el kiosco para elegir la temperatura ideal para tu cabello.",
+        vid_eyebrow: "Academia Capilar Battle Beauty",
+        vid_title: "Tutoriales en Video Paso a Paso",
+        vid_sub: "Estamos preparando nuevos videos con demostraciones de peinado, uso del cepillo secador y rutinas de cuidado capilar. ¡Vuelve pronto para ver el nuevo contenido!",
+        vid_slot_badge: "Espacio de Video • Próximamente",
+        vid_slot_sub: "Listo para subir nuevo tutorial",
+        vid1_title: "Volumen con Cepillo Secador y Cuidado de Cerdas",
+        vid1_desc: "Cómo desenredar completamente el cabello primero y lograr un blowout sin frizz sin dañar las cerdas.",
+        vid2_title: "Guía de Luz LED Roja y Plancha IR+ Wide",
+        vid2_desc: "Cómo elegir la temperatura correcta para tu tipo de cabello y deslizar suavemente para un brillo espejo.",
+        vid3_title: "Rutina Botánica de Protección Capilar",
+        vid3_desc: "Cómo aplicar Trio Miracle Oil, Moroccan Serum y Moroccan Mask para máxima hidratación y protección térmica.",
+        con_eyebrow: "Experiencia 100% Gratuita en Kiosco",
+        con_title: "Reserva una Consulta Gratuita 1 a 1",
+        con_desc: "Visítanos en nuestro kiosco en Meadowood Mall para una demostración gratuita y descubre qué herramienta y rutina capilar se adaptan mejor a tu cabello.",
+        con_li1: "Comparación gratuita en vivo de placas infrarrojas LED rojas, peines térmicos y cepillos secadores",
+        con_li2: "Recomendaciones personalizadas de temperatura y cuidado capilar",
+        con_li3: "Ayuda paso a paso para registrar tu herramienta en soleilhairtools.com",
+        con_notice: "<strong>Aviso de Boutique Minorista:</strong> Battle Beauty es una boutique de venta de herramientas y productos capilares, no un salón de belleza con licencia. Todas las consultas y demostraciones son 100% gratuitas.",
+        form_name: "Tu Nombre Completo",
+        form_email: "Tu Correo Electrónico",
+        form_phone: "Teléfono / WhatsApp",
+        form_select_default: "Selecciona Herramienta o Tema...",
+        form_btn: "Solicitar Consulta Gratuita",
+        vis_eyebrow: "Reno, Nevada",
+        vis_title: "Visita Nuestra Boutique en Meadowood Mall",
+        vis_desc: "Nuestro kiosco cambia de ubicación dentro de los pasillos principales del centro comercial según la temporada. ¡Llámanos o envíanos un mensaje si necesitas ayuda para ubicarnos!",
+        vis_card1_title: "Ubicación",
+        vis_card2_title: "Horario del Mall",
+        vis_hours1: "Lun – Sáb: 10:00 AM – 8:00 PM",
+        vis_hours2: "Domingo: 11:00 AM – 6:00 PM",
+        vis_card3_title: "Contacto y Redes",
+        footer_heading: "Atención al Cliente, Garantía y Políticas Legales",
+        tab_warranty_reg: "Garantía y Registro de Herramienta",
+        tab_soleil_process: "Proceso de Garantía Soleil y Tarifa de $75",
+        tab_refund: "Política de Reembolso y Cambios",
+        tab_disclaimer: "Descargo de Responsabilidad del Cliente",
+        tab_shipping: "Envíos y Recogida",
+        tab_terms: "Términos y Privacidad",
+        footer_copy: "© 2026 Battle Beauty, LLC • Distribuidor Autorizado de Soleil Hair Tools • Meadowood Mall, Reno, NV",
+        policies: {
+          warranty_reg: {
+            title: "Garantía y Registro Obligatorio en 30 Días",
+            body: "<p><strong>Garantía Oficial de Por Vida del Fabricante:</strong> Cada herramienta original de Soleil incluye una Garantía de Por Vida respaldada por Soleil Hair Tools.</p><p><strong>Cómo Registrar Tu Herramienta (Dentro de 30 Días):</strong> Para activar tu garantía, debes registrar tu herramienta en línea dentro de los <strong>30 días posteriores a la compra</strong> en <strong>soleilhairtools.com</strong>. Selecciona <strong>WARRANTY → REGISTER TOOL</strong> e ingresa tus datos de compra y número de serie.</p><p><strong>Herramientas No Registradas:</strong> Las herramientas no registradas <strong>no están cubiertas</strong> bajo el programa de reemplazo por garantía. Sin embargo, a discreción del propietario, las herramientas no registradas pueden ser elegibles para un precio de reemplazo con descuento.</p>"
+          },
+          soleil_process: {
+            title: "Proceso de Garantía Soleil y Tarifa Presencial de $75",
+            body: "<p>Para <strong>herramientas registradas</strong> con un defecto de fábrica cubierto, existen dos opciones de reemplazo:</p><p><strong>Opción 1: Proceso Estándar por Correo en soleilhairtools.com</strong><br>Envía tu reclamo directamente en línea en <strong>soleilhairtools.com</strong>. El envío de garantía con el fabricante tiene un costo de <strong>$29.99 por envío y manejo</strong> y toma aproximadamente de <strong>7 a 10 días hábiles (~2 semanas)</strong> una vez recibido por el fabricante.</p><p><strong>Opción 2: Tarifa de Conveniencia Presencial de $75 (Ubicación Meadowood Mall)</strong><br>¿Necesitas tu reemplazo hoy mismo sin esperar el envío por correo? Para herramientas que hayan sido <strong>debidamente registradas</strong>, Battle Beauty ofrece un reemplazo inmediato en nuestro kiosco de Meadowood Mall por una <strong>tarifa de conveniencia presencial de $75</strong>. Este servicio cubre únicamente el cambio inmediato por el mismo modelo (sin servicios de peinado) y aplica exclusivamente a herramientas registradas.</p><p><strong>Nota sobre Herramientas No Registradas:</strong> Las herramientas no registradas no califican para cobertura de garantía, aunque pueden ser elegibles para un precio con descuento a discreción del propietario.</p>"
+          },
+          refund_policy: {
+            title: "Política de Reembolso y Cambios (Y Su Razón)",
+            body: "<p><strong>NO HAY REEMBOLSOS. TODAS LAS VENTAS SON FINALES.</strong></p><p><strong>Cambios Dentro de 14 Días (Herramientas Abiertas):</strong> Las herramientas abiertas pueden cambiarse dentro de los <strong>14 días</strong> posteriores a la compra presentando el recibo original y todo su empaque original. Todos los cambios aprobados están sujetos a una <strong>tarifa de reposición (restocking fee) del 40%</strong> para cubrir costos de empaque, inspección técnica, desinfección y gestión administrativa.</p><p><strong>Venta Estrictamente Final (Sin Cambios):</strong> Las extensiones de cabello y todos los productos botánicos de cuidado capilar (aceites, sueros, mascarillas, champús y líquidos) son <strong>venta final sin excepción</strong>.</p><p><strong>¿Por Qué Aplicamos Esta Política?:</strong> Tu salud, higiene y tranquilidad son nuestra prioridad. Así como a ti no te gustaría recibir un cepillo, herramienta térmica, suero o extensión de cabello que ya fue abierto o usado en el hogar de otra persona, estrictas normas de higiene y esterilidad nos impiden revender productos capilares o herramientas abiertas.</p>"
+          },
+          disclaimer: {
+            title: "Descargo de Responsabilidad del Cliente y Cuidado de Herramientas",
+            body: "<p>Al comprar y utilizar herramientas térmicas o productos capilares de Battle Beauty, el cliente reconoce y acepta las siguientes responsabilidades:</p><p><strong>1. Responsabilidad Exclusiva de Registro:</strong> El cliente es el <strong>único responsable de registrar su herramienta</strong> dentro de los 30 días posteriores a la compra en <strong>soleilhairtools.com</strong>. No registrarla a tiempo anula la cobertura de garantía (las herramientas no registradas no están cubiertas, aunque pueden ser elegibles para un precio con descuento a discreción del propietario).</p><p><strong>2. Uso de Temperatura Adecuada:</strong> El cliente es exclusivamente responsable de seleccionar y utilizar la temperatura adecuada para su tipo de cabello, grosor e historial químico. Úsese siempre sobre cabello 100% seco con protector térmico.</p><p><strong>3. Cuidado de las Cerdas del Cepillo Secador:</strong> <strong>Las cerdas del cepillo secador se doblarán o romperán si no desenredas tu cabello primero.</strong> Los cepillos secadores son herramientas de acabado y alisado; nunca fuerces ni jales el cepillo a través de cabello enredado o con nudos. La rotura de cerdas por usar el cepillo sin desenredar el cabello previamente constituye mal uso físico y no está cubierta por la garantía.</p>"
+          },
+          shipping: {
+            title: "Política de Envíos y Recogida Local",
+            body: "<p><strong>Pedidos en Línea:</strong> Los pedidos realizados en nuestra tienda conectada se procesan en 1 a 2 días hábiles mediante envío asegurado con número de rastreo enviado a tu correo electrónico.</p><p><strong>Recogida Local Gratuita (Reno, NV):</strong> Los clientes locales pueden recoger su pedido sin costo en nuestro kiosco de Meadowood Mall (5000 Meadowood Mall Circle, Reno, NV 89502) durante el horario del centro comercial.</p>"
+          },
+          terms_privacy: {
+            title: "Términos de Servicio y Política de Privacidad",
+            body: "<p><strong>Términos de Servicio:</strong> Bienvenido a battle-beauty.com, operado por Battle Beauty, LLC. Al utilizar este sitio o realizar una compra, aceptas nuestros precios oficiales MSRP, políticas de cambio y descargos de responsabilidad. Battle Beauty es una boutique minorista y no ofrece servicios de salón con licencia.</p><p><strong>Política de Privacidad:</strong> Battle Beauty, LLC respeta tu privacidad. Los datos compartidos en solicitudes de consulta o compras se utilizan únicamente para procesar pedidos y comunicarnos contigo. Nunca vendemos tus datos personales.</p>"
+          }
+        }
+      }
+    };
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('bb_lang', lang);
+      document.documentElement.lang = lang;
+      document.getElementById('langBtn').innerText = lang === 'en' ? 'Español' : 'English';
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang][key]) {
+          el.placeholder = translations[lang][key];
+        }
+      });
+    }
+
+    function toggleLanguage() {
+      applyLanguage(currentLang === 'en' ? 'es' : 'en');
+    }
+
+    function openPolicy(type) {
+      const pol = translations[currentLang].policies[type];
+      document.getElementById('modalTitle').innerText = pol.title;
+      document.getElementById('modalBody').innerHTML = pol.body;
+      document.getElementById('infoModal').style.display = 'flex';
+    }
+
+    function handleBooking(e) {
+      e.preventDefault();
+      const name = document.getElementById('clientName').value;
+      const tool = document.getElementById('toolInterest').value;
+      const date = document.getElementById('visitDate').value;
+
+      if (currentLang === 'es') {
+        document.getElementById('modalTitle').innerText = "Solicitud de Consulta Recibida";
+        document.getElementById('modalBody').innerHTML =
+          "<p>¡Gracias, <strong>" + name + "</strong>!</p>" +
+          "<p>Hemos anotado tu solicitud de consulta gratuita 1 a 1 para <strong>" + tool + "</strong> el día <strong>" + date + "</strong> en Meadowood Mall.</p>" +
+          "<p>Para confirmación inmediata, también puedes escribirnos por WhatsApp/SMS al <strong>(702) 325-7785</strong> o por Instagram <strong>@BattleBeauty775</strong>.</p>";
+      } else {
+        document.getElementById('modalTitle').innerText = "Consultation Request Received";
+        document.getElementById('modalBody').innerHTML =
+          "<p>Thank you, <strong>" + name + "</strong>!</p>" +
+          "<p>We have noted your free 1-on-1 consultation request for <strong>" + tool + "</strong> on <strong>" + date + "</strong> at Meadowood Mall.</p>" +
+          "<p>For immediate confirmation, you can also text/WhatsApp us at <strong>(702) 325-7785</strong> or DM <strong>@BattleBeauty775</strong>.</p>";
+      }
+      document.getElementById('infoModal').style.display = 'flex';
+      e.target.reset();
+    }
+
+    function closeModal(e) {
+      if (e.target.id === 'infoModal') {
+        document.getElementById('infoModal').style.display = 'none';
+      }
+    }
+
+    // Initialize saved language
+    applyLanguage(currentLang);
+  </script>
 </body>
 </html>
